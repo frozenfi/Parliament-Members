@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ParliamentApplication</string>
+
+    <string name="sd">Suomen Sosialidemokraattinen puolue</string>
+    <string name="kd">Suomen Kristillisdemokraatit</string>
+    <string name="kesk">Suomen Keskusta</string>
+    <string name="r">Ruotsalainen kansanpuolue</string>
+    <string name="vas">Left Alliance</string>
+    <string name="liik">Liike Nyt</string>
+    <string name="vihr">Vihreä liitto</string>
+    <string name="kok">Kansallinen Kokoomus</string>
+    <string name="ps">Perussuomalaise</string>
+    <string name="vkk">Valta kuulu kansalle</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="party_list">Party List</string>
+    <string name="party_logo">Party Logo</string>
+    <string name="party_logo1">Party Logo</string>
+    <string name="title">Title</string>
+    <string name="add_comment">Add Comment</string>
+    <string name="comment_hint">Please leave your comment here</string>
+    <string name="add_comment_btn">Add Comment</string>
+</resources>

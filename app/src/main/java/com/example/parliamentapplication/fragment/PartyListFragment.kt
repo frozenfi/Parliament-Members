@@ -49,13 +49,10 @@ class PartyListFragment : Fragment() {
             }
         }
         partyViewModel.navigateToPartySelected.observe(viewLifecycleOwner) { party ->
-            party.let {
+            party?.let {
                 view?.findNavController()?.navigate(PartyListFragmentDirections.actionPartyListFragmentToMemberListFragment(party))
-               // this.findNavController().navigate(
-                 //   PartyListFragmentDirections.actionPartyListFragmentToMemberListFragment(party))
-                //partyViewModel.onNavigateToPartySelected()
+                partyViewModel.onNavigateToPartySelected()
             }
-            partyViewModel.onNavigateToPartySelected()
         }
 
         binding.partyList.layoutManager =LinearLayoutManager(requireContext())

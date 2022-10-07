@@ -10,7 +10,7 @@ class PartyViewModel(membersRepo: MembersRepo) : ViewModel() {
     val status = membersRepo.status
 
 
-    private val _navigateToPartySelected = MutableLiveData<String>()
+    private val _navigateToPartySelected = MutableLiveData<String?>()
     val navigateToPartySelected
         get() = _navigateToPartySelected
 
@@ -19,7 +19,7 @@ class PartyViewModel(membersRepo: MembersRepo) : ViewModel() {
     }
 
     fun onNavigateToPartySelected() {
-        //_navigateToPartySelected.value = null
+        _navigateToPartySelected.value = null
     }
 }
 

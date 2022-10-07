@@ -1,11 +1,10 @@
 package com.example.parliamentapplication.data
 
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Update
+import androidx.lifecycle.LiveData
+import androidx.room.*
+import java.util.concurrent.Flow
 
-
+@Dao
 interface FeedbackDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(commentFeedback: Feedback)
@@ -15,6 +14,9 @@ interface FeedbackDao {
 
     @Query("SELECT * FROM feedback_database WHERE personNumber = :personNumber")
     suspend fun getComment(personNumber:Int):Feedback
+
+   // @Query("SELECT * FROM feedback_database WHERE personNumber = :personNumber")
+    //fun getAllComment(personNumber: Int): LiveData<List<Feedback>>
 
     @Query("DELETE FROM feedback_database")
     fun clear()

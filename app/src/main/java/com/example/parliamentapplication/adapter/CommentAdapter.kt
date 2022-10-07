@@ -1,5 +1,5 @@
 package com.example.parliamentapplication.adapter
-/*
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -45,6 +45,6 @@ class CommentDiffCallback:DiffUtil.ItemCallback<String>() {
         return oldItem == newItem
     }
 
-}*/
+}
 
 

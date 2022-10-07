@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.MenuItem
 
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 
 
 import com.example.parliamentapplication.databinding.ActivityMainBinding
@@ -19,19 +21,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        supportActionBar?.setHomeAsUpIndicator(R.drawable.arrow_back)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
-
+        val navController = this.findNavController(R.id.myNavHostFragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
     }
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
-        }
-        return super.onContextItemSelected(item)
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = this.findNavController(R.id.myNavHostFragment)
+        return navController.navigateUp()
     }
 }

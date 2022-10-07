@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\drawable-v24_vihr.png.flat",
-        "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\drawable-v24\\vihr.png"
-    },
-    {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\drawable-v24_vas.png.flat",
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\drawable-v24\\vas.png"
+    },
+    {
+        "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\drawable-v24_vihr.png.flat",
+        "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\drawable-v24\\vihr.png"
     },
     {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\layout_member_list_item.xml.flat",
@@ -42,10 +42,6 @@
     {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "com.example.parliamentapplication.app-merged_res-74:/navigation_nav_graph.xml.flat",
-        "source": "com.example.parliamentapplication.app-main-76:/navigation/nav_graph.xml"
     },
     {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\mipmap-mdpi_ic_launcher.webp.flat",
@@ -138,6 +134,10 @@
     {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\layout_fragment_party_list.xml.flat",
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\fragment_party_list.xml"
+    },
+    {
+        "merged": "com.example.parliamentapplication.app-merged_res-74:/layout_comment_item.xml.flat",
+        "source": "com.example.parliamentapplication.app-main-76:/layout/comment_item.xml"
     },
     {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\mipmap-xhdpi_ic_launcher_round.webp.flat",

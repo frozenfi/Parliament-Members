@@ -6,7 +6,9 @@ import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.parliamentapplication.R
+import com.example.parliamentapplication.data.Feedback
 import com.example.parliamentapplication.data.MemberOfParliamentDatabase
 import com.example.parliamentapplication.databinding.FragmentMemberDetailsBinding
 import com.example.parliamentapplication.viewmodel.MemberDetailsViewModel
@@ -23,19 +25,38 @@ class MemberDetailsFragment : Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_member_details, container, false)
         val application = requireNotNull(this.activity).application
-        //val args = MemberDetailsFragmentArgs.fromBundle(requireArguments())
+
         val argument = MemberDetailsFragmentArgs.fromBundle(requireArguments())
         val dataSrc = MemberOfParliamentDatabase.getInstance(application).memberOfParliamentDAO
-       // val feedbackSrc = FeedbackDatabase.getInstance(application).feedbackDao
 
-       // val viewModelFactory = MemberDetailsViewModelFactory(dataSrc, args.personNumber)
+
         val viewModelFactory = MemberDetailsViewModelFactory(dataSrc,argument.personNumber)
         val memberDetailsViewModel = ViewModelProvider(this,viewModelFactory)[MemberDetailsViewModel::class.java]
 
+
+
+        //Observe the member selected to update the comment
+        var observeFeedback = Feedback(argument.personNumber,0, mutableListOf())
+
+        memberDetailsViewModel.memberComment.observe(viewLifecycleOwner) {
+           observeFeedback = it!!
+        }
+
         binding.addComment.setOnClickListener{
+            memberDetailsViewModel.onAddCommentBtnClicked(observeFeedback)
             Toast.makeText(requireContext(), "Please add comment", Toast.LENGTH_SHORT).show()
         }
 
+        memberDetailsViewModel.navigateToComment.observe(viewLifecycleOwner) { comment ->
+            comment?.let {
+                this.findNavController().navigate(
+                    MemberDetailsFragmentDirections.actionMemberDetailsToCommentFragment(
+                        argument.personNumber
+                    )
+                )
+                memberDetailsViewModel.navigateToCommentCompleted()
+            }
+        }
 
         binding.memberDetailsViewModel =memberDetailsViewModel
 

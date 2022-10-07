@@ -30,9 +30,14 @@ id action_memberDetails_to_commentFragment
 id action_memberListFragment_to_memberDetails
 id action_partyListFragment_to_memberListFragment
 id add_comment
+id add_comment_btn
 id card_view
 id commentFragment
+id comment_item
+id comment_list
+id comment_list_container
 id constituency
+id edit_comment
 id fullNameTV
 id mainFragment
 id memberDetails
@@ -52,6 +57,7 @@ id party_name
 id party_text_view
 layout activity_main
 layout card_item
+layout comment_item
 layout fragment_comment
 layout fragment_main
 layout fragment_member_details

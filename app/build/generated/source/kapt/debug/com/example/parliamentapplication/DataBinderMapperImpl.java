@@ -8,6 +8,8 @@ import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.example.parliamentapplication.databinding.ActivityMainBindingImpl;
 import com.example.parliamentapplication.databinding.CardItemBindingImpl;
+import com.example.parliamentapplication.databinding.CommentItemBindingImpl;
+import com.example.parliamentapplication.databinding.FragmentCommentBindingImpl;
 import com.example.parliamentapplication.databinding.FragmentMainBindingImpl;
 import com.example.parliamentapplication.databinding.FragmentMemberDetailsBindingImpl;
 import com.example.parliamentapplication.databinding.FragmentMemberListBindingImpl;
@@ -29,23 +31,29 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_CARDITEM = 2;
 
-  private static final int LAYOUT_FRAGMENTMAIN = 3;
+  private static final int LAYOUT_COMMENTITEM = 3;
 
-  private static final int LAYOUT_FRAGMENTMEMBERDETAILS = 4;
+  private static final int LAYOUT_FRAGMENTCOMMENT = 4;
 
-  private static final int LAYOUT_FRAGMENTMEMBERLIST = 5;
+  private static final int LAYOUT_FRAGMENTMAIN = 5;
 
-  private static final int LAYOUT_FRAGMENTPARTYLIST = 6;
+  private static final int LAYOUT_FRAGMENTMEMBERDETAILS = 6;
 
-  private static final int LAYOUT_MEMBERLISTITEM = 7;
+  private static final int LAYOUT_FRAGMENTMEMBERLIST = 7;
 
-  private static final int LAYOUT_PARTYLISTITEM = 8;
+  private static final int LAYOUT_FRAGMENTPARTYLIST = 8;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(8);
+  private static final int LAYOUT_MEMBERLISTITEM = 9;
+
+  private static final int LAYOUT_PARTYLISTITEM = 10;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(10);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.parliamentapplication.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.parliamentapplication.R.layout.card_item, LAYOUT_CARDITEM);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.parliamentapplication.R.layout.comment_item, LAYOUT_COMMENTITEM);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.parliamentapplication.R.layout.fragment_comment, LAYOUT_FRAGMENTCOMMENT);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.parliamentapplication.R.layout.fragment_main, LAYOUT_FRAGMENTMAIN);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.parliamentapplication.R.layout.fragment_member_details, LAYOUT_FRAGMENTMEMBERDETAILS);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.parliamentapplication.R.layout.fragment_member_list, LAYOUT_FRAGMENTMEMBERLIST);
@@ -74,6 +82,18 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new CardItemBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for card_item is invalid. Received: " + tag);
+        }
+        case  LAYOUT_COMMENTITEM: {
+          if ("layout/comment_item_0".equals(tag)) {
+            return new CommentItemBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for comment_item is invalid. Received: " + tag);
+        }
+        case  LAYOUT_FRAGMENTCOMMENT: {
+          if ("layout/fragment_comment_0".equals(tag)) {
+            return new FragmentCommentBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for fragment_comment is invalid. Received: " + tag);
         }
         case  LAYOUT_FRAGMENTMAIN: {
           if ("layout/fragment_main_0".equals(tag)) {
@@ -156,25 +176,29 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(7);
+    static final SparseArray<String> sKeys = new SparseArray<String>(9);
 
     static {
       sKeys.put(0, "_all");
       sKeys.put(1, "clickListener");
-      sKeys.put(2, "member");
-      sKeys.put(3, "memberDetailsViewModel");
-      sKeys.put(4, "memberViewModel");
-      sKeys.put(5, "party");
-      sKeys.put(6, "partyViewModel");
+      sKeys.put(2, "comment");
+      sKeys.put(3, "commentViewModel");
+      sKeys.put(4, "member");
+      sKeys.put(5, "memberDetailsViewModel");
+      sKeys.put(6, "memberViewModel");
+      sKeys.put(7, "party");
+      sKeys.put(8, "partyViewModel");
     }
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(8);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(10);
 
     static {
       sKeys.put("layout/activity_main_0", com.example.parliamentapplication.R.layout.activity_main);
       sKeys.put("layout/card_item_0", com.example.parliamentapplication.R.layout.card_item);
+      sKeys.put("layout/comment_item_0", com.example.parliamentapplication.R.layout.comment_item);
+      sKeys.put("layout/fragment_comment_0", com.example.parliamentapplication.R.layout.fragment_comment);
       sKeys.put("layout/fragment_main_0", com.example.parliamentapplication.R.layout.fragment_main);
       sKeys.put("layout/fragment_member_details_0", com.example.parliamentapplication.R.layout.fragment_member_details);
       sKeys.put("layout/fragment_member_list_0", com.example.parliamentapplication.R.layout.fragment_member_list);

@@ -21,7 +21,7 @@ class FeedbackRepo(private val feedbackDao: FeedbackDao) {
     init {
         _status.postValue(ParliamentApiStatus.LOADING)
     }
-    suspend fun refreshFeedbackData() {
+    suspend fun refreshFeedbackDatabase() {
         withContext(Dispatchers.IO) {
             val members = ParliamentApi.parliamentMembers.getParliamentMembers()
             _status.postValue(ParliamentApiStatus.DONE)

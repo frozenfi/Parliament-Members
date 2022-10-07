@@ -1,9 +1,10 @@
 package com.example.parliamentapplication.data
 
 import android.content.Context
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 
+@Database(entities = [Feedback::class], version = 1, exportSchema = false)
+@TypeConverters(TypeConverter::class)
 abstract class FeedbackDatabase:RoomDatabase() {
     abstract val feedbackDao:FeedbackDao
 
@@ -22,7 +23,7 @@ abstract class FeedbackDatabase:RoomDatabase() {
                     )
                         .fallbackToDestructiveMigration()
                         .build()
-                    INSTANCE=instance
+                    INSTANCE = instance
                 }
                 return instance
             }

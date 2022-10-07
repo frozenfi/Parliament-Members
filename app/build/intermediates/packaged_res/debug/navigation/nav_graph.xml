@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/partyListFragment"
+        android:name="com.example.parliamentapplication.fragment.PartyListFragment"
+        android:label="fragment_party_list"
+        tools:layout="@layout/fragment_party_list">
+        <action
+            android:id="@+id/action_partyListFragment_to_memberListFragment"
+            app:destination="@id/memberListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.parliamentapplication.fragment.MainFragment"
+        android:label="MainFragment">
+        <action
+            android:id="@+id/action_mainFragment_to_partyListFragment"
+            app:destination="@id/partyListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memberListFragment"
+        android:name="com.example.parliamentapplication.fragment.MemberListFragment"
+        android:label="fragment_member_list"
+        tools:layout="@layout/fragment_member_list">
+
+        <action
+            android:id="@+id/action_memberListFragment_to_memberDetails"
+            app:destination="@id/memberDetails" />
+        <argument
+            android:name="party"
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/memberDetails"
+        android:name="com.example.parliamentapplication.fragment.MemberDetailsFragment"
+        android:label="fragment_member_details"
+        tools:layout="@layout/fragment_member_details">
+
+        <argument
+            android:name="personNumber"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_memberDetails_to_commentFragment"
+            app:destination="@id/commentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentFragment"
+        android:name="com.example.parliamentapplication.fragment.CommentFragment"
+        android:label="fragment_comment"
+        tools:layout="@layout/fragment_comment" >
+        <action
+            android:id="@+id/action_commentFragment_to_memberDetails"
+            app:destination="@id/memberDetails" />
+
+        <argument
+            android:name="personNumber"
+            app:argType="integer"/>
+    </fragment>
+</navigation>

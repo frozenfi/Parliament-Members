@@ -8,8 +8,8 @@
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\fragment_member_details.xml"
     },
     {
-        "merged": "com.example.parliamentapplication.app-mergeDebugResources-73:/layout/comment_item.xml",
-        "source": "com.example.parliamentapplication.app-main-76:/layout/comment_item.xml"
+        "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-mergeDebugResources-73:\\layout\\fragment_member_list.xml",
+        "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\fragment_member_list.xml"
     },
     {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-mergeDebugResources-73:\\layout\\activity_main.xml",
@@ -32,19 +32,15 @@
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\card_item.xml"
     },
     {
-        "merged": "com.example.parliamentapplication.app-mergeDebugResources-73:/layout/fragment_comment.xml",
-        "source": "com.example.parliamentapplication.app-main-76:/layout/fragment_comment.xml"
-    },
-    {
-        "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-mergeDebugResources-73:\\layout\\member_list_item.xml",
-        "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\member_list_item.xml"
-    },
-    {
-        "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-mergeDebugResources-73:\\layout\\fragment_member_list.xml",
-        "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\fragment_member_list.xml"
+        "merged": "com.example.parliamentapplication.app-mergeDebugResources-73:/layout/card_item.xml",
+        "source": "com.example.parliamentapplication.app-main-76:/layout/card_item.xml"
     },
     {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-mergeDebugResources-73:\\layout\\fragment_comment.xml",
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\fragment_comment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-mergeDebugResources-73:\\layout\\member_list_item.xml",
+        "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\member_list_item.xml"
     }
 ]

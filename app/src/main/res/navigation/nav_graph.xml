@@ -59,7 +59,7 @@
             app:destination="@id/memberDetails" />
 
         <argument
-            android:name="personNumber"
-            app:argType="integer"/>
+            android:name="feedback"
+            app:argType="com.example.parliamentapplication.data.Feedback"/>
     </fragment>
 </navigation>

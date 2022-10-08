@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.parliamentapplication.data.Comment
 import com.example.parliamentapplication.databinding.CommentItemBinding
 
 class CommentAdapter : ListAdapter<String, CommentAdapter.ViewHolder>(CommentDiffCallback()) {
@@ -12,8 +13,8 @@ class CommentAdapter : ListAdapter<String, CommentAdapter.ViewHolder>(CommentDif
     class ViewHolder private constructor(val binding: CommentItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: String) {
-            binding.commentItem.text=item
+        fun bind(item:String) {
+           binding.commentItem.text = item
         }
 
         companion object{
@@ -37,6 +38,7 @@ class CommentAdapter : ListAdapter<String, CommentAdapter.ViewHolder>(CommentDif
 }
 
 class CommentDiffCallback:DiffUtil.ItemCallback<String>() {
+
     override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
         return oldItem == newItem
     }

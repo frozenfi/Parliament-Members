@@ -33,18 +33,6 @@ class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : View
         _selectedMember.value = membersRepo.getMembersWithPersonNumber(personNumber)
 
     }
-    /*
-    init {
-        viewModelScope.launch {
-            _memberComment.value = _selectMember.value?.personNumber?.let {
-                feedbackRepo.getFeedback(it)
-            }
-
-        }
-    }
-
-     */
-
 
     fun updateFeedback(newRating: Int) {
         viewModelScope.launch {
@@ -71,6 +59,22 @@ class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : View
 
     fun navigateToCommentCompleted() {
         _navigateToComment.value = null
+    }
+
+    fun updatePartyText():String {
+        val partyName = when(selectMember.value?.party) {
+                "kd" -> "Christian Democrats"
+                "kesk" -> "Centre Party"
+                "kok" -> "National Coalition Party"
+                "liik" -> "Movement Now"
+                "ps" -> "Finns party"
+                "r" -> "Swedish People's Party"
+                "sd" -> "Social Democratic Party"
+                "vas" -> "Left Alliance"
+                "vihr" -> "Green League"
+                else -> ""
+        }
+        return "Party: $partyName"
     }
 
 }

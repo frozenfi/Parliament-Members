@@ -14,33 +14,43 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.add_comment, 5);
+        sViewsWithIds.put(R.id.age, 6);
+        sViewsWithIds.put(R.id.upVote_btn, 7);
+        sViewsWithIds.put(R.id.downVote_btn, 8);
+        sViewsWithIds.put(R.id.rating_score, 9);
+        sViewsWithIds.put(R.id.add_comment, 10);
     }
     // views
     @NonNull
-    private final androidx.constraintlayout.widget.ConstraintLayout mboundView0;
+    private final android.widget.ScrollView mboundView0;
     // variables
     // values
     // listeners
     // Inverse Binding Event Handlers
 
     public FragmentMemberDetailsBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 6, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 11, sIncludes, sViewsWithIds));
     }
     private FragmentMemberDetailsBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 2
-            , (android.widget.ImageButton) bindings[5]
-            , (android.widget.TextView) bindings[4]
-            , (android.widget.TextView) bindings[2]
-            , (android.widget.ImageView) bindings[1]
+            , (android.widget.Button) bindings[10]
+            , (android.widget.TextView) bindings[6]
             , (android.widget.TextView) bindings[3]
+            , (android.widget.ImageButton) bindings[8]
+            , (android.widget.TextView) bindings[1]
+            , (android.widget.ImageView) bindings[5]
+            , (android.widget.TextView) bindings[2]
+            , (android.widget.TextView) bindings[4]
+            , (android.widget.TextView) bindings[9]
+            , (android.widget.ImageButton) bindings[7]
             );
         this.constituency.setTag(null);
-        this.fullNameTV.setTag(null);
-        this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
+        this.ifMinister.setTag(null);
+        this.mboundView0 = (android.widget.ScrollView) bindings[0];
         this.mboundView0.setTag(null);
-        this.memberIV.setTag(null);
-        this.partyNameTV.setTag(null);
+        this.memberImage.setTag(null);
+        this.name.setTag(null);
+        this.party.setTag(null);
         setRootTag(root);
         // listeners
         invalidateAll();
@@ -121,10 +131,11 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
+        java.lang.String memberDetailsViewModelMemberMinisterJavaLangStringMinisterJavaLangStringParliamentMember = null;
         androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers> memberDetailsViewModelMemberGetValue = null;
         androidx.lifecycle.LiveData<androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers>> memberDetailsViewModelMember = null;
-        java.lang.String stringValueOfMemberDetailsViewModelMemberParty = null;
         java.lang.String memberDetailsViewModelMemberPicture = null;
+        boolean memberDetailsViewModelMemberMinister = false;
         java.lang.String memberDetailsViewModelMemberParty = null;
         com.example.parliamentapplication.viewmodel.MemberDetailsViewModel memberDetailsViewModel = mMemberDetailsViewModel;
         java.lang.String memberDetailsViewModelMemberConstituency = null;
@@ -158,6 +169,8 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
                 if (memberDetailsViewModelMemberGetValueGetValue != null) {
                     // read memberDetailsViewModel.member.getValue().getValue().picture
                     memberDetailsViewModelMemberPicture = memberDetailsViewModelMemberGetValueGetValue.getPicture();
+                    // read memberDetailsViewModel.member.getValue().getValue().minister
+                    memberDetailsViewModelMemberMinister = memberDetailsViewModelMemberGetValueGetValue.getMinister();
                     // read memberDetailsViewModel.member.getValue().getValue().party
                     memberDetailsViewModelMemberParty = memberDetailsViewModelMemberGetValueGetValue.getParty();
                     // read memberDetailsViewModel.member.getValue().getValue().constituency
@@ -165,19 +178,28 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
                     // read memberDetailsViewModel.member.getValue().getValue().fullName
                     memberDetailsViewModelMemberFullName = memberDetailsViewModelMemberGetValueGetValue.getFullName();
                 }
+            if((dirtyFlags & 0xfL) != 0) {
+                if(memberDetailsViewModelMemberMinister) {
+                        dirtyFlags |= 0x20L;
+                }
+                else {
+                        dirtyFlags |= 0x10L;
+                }
+            }
 
 
-                // read String.valueOf(memberDetailsViewModel.member.getValue().getValue().party)
-                stringValueOfMemberDetailsViewModelMemberParty = java.lang.String.valueOf(memberDetailsViewModelMemberParty);
+                // read memberDetailsViewModel.member.getValue().getValue().minister ? "Minister" : "Parliament Member"
+                memberDetailsViewModelMemberMinisterJavaLangStringMinisterJavaLangStringParliamentMember = ((memberDetailsViewModelMemberMinister) ? ("Minister") : ("Parliament Member"));
         }
         // batch finished
         if ((dirtyFlags & 0xfL) != 0) {
             // api target 1
 
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.constituency, memberDetailsViewModelMemberConstituency);
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.fullNameTV, memberDetailsViewModelMemberFullName);
-            com.example.parliamentapplication.utils.UtilitiesKt.bindImage(this.memberIV, memberDetailsViewModelMemberPicture);
-            com.example.parliamentapplication.utils.UtilitiesKt.setPartyName(this.partyNameTV, stringValueOfMemberDetailsViewModelMemberParty);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.ifMinister, memberDetailsViewModelMemberMinisterJavaLangStringMinisterJavaLangStringParliamentMember);
+            com.example.parliamentapplication.utils.UtilitiesKt.bindImage(this.memberImage, memberDetailsViewModelMemberPicture);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.name, memberDetailsViewModelMemberFullName);
+            this.party.setText(memberDetailsViewModelMemberParty);
         }
     }
     // Listener Stub Implementations
@@ -189,6 +211,8 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
         flag 1 (0x2L): memberDetailsViewModel.member
         flag 2 (0x3L): memberDetailsViewModel
         flag 3 (0x4L): null
+        flag 4 (0x5L): memberDetailsViewModel.member.getValue().getValue().minister ? "Minister" : "Parliament Member"
+        flag 5 (0x6L): memberDetailsViewModel.member.getValue().getValue().minister ? "Minister" : "Parliament Member"
     flag mapping end*/
     //end
 }

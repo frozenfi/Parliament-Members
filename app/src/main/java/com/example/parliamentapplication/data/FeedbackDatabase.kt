@@ -3,6 +3,11 @@ package com.example.parliamentapplication.data
 import android.content.Context
 import androidx.room.*
 
+
+/*
+A database that stores the comment and rating data
+*/
+
 @Database(entities = [Feedback::class], version = 1, exportSchema = false)
 @TypeConverters(TypeConverter::class)
 abstract class FeedbackDatabase:RoomDatabase() {

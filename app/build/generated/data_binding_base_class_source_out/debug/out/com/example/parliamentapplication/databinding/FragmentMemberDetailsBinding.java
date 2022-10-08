@@ -4,6 +4,7 @@ package com.example.parliamentapplication.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,32 +20,53 @@ import java.lang.Object;
 
 public abstract class FragmentMemberDetailsBinding extends ViewDataBinding {
   @NonNull
-  public final ImageButton addComment;
+  public final Button addComment;
+
+  @NonNull
+  public final TextView age;
 
   @NonNull
   public final TextView constituency;
 
   @NonNull
-  public final TextView fullNameTV;
+  public final ImageButton downVoteBtn;
 
   @NonNull
-  public final ImageView memberIV;
+  public final TextView ifMinister;
 
   @NonNull
-  public final TextView partyNameTV;
+  public final ImageView memberImage;
+
+  @NonNull
+  public final TextView name;
+
+  @NonNull
+  public final TextView party;
+
+  @NonNull
+  public final TextView ratingScore;
+
+  @NonNull
+  public final ImageButton upVoteBtn;
 
   @Bindable
   protected MemberDetailsViewModel mMemberDetailsViewModel;
 
   protected FragmentMemberDetailsBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      ImageButton addComment, TextView constituency, TextView fullNameTV, ImageView memberIV,
-      TextView partyNameTV) {
+      Button addComment, TextView age, TextView constituency, ImageButton downVoteBtn,
+      TextView ifMinister, ImageView memberImage, TextView name, TextView party,
+      TextView ratingScore, ImageButton upVoteBtn) {
     super(_bindingComponent, _root, _localFieldCount);
     this.addComment = addComment;
+    this.age = age;
     this.constituency = constituency;
-    this.fullNameTV = fullNameTV;
-    this.memberIV = memberIV;
-    this.partyNameTV = partyNameTV;
+    this.downVoteBtn = downVoteBtn;
+    this.ifMinister = ifMinister;
+    this.memberImage = memberImage;
+    this.name = name;
+    this.party = party;
+    this.ratingScore = ratingScore;
+    this.upVoteBtn = upVoteBtn;
   }
 
   public abstract void setMemberDetailsViewModel(

@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -15,12 +17,20 @@ import java.lang.Object;
 
 public abstract class FragmentMainBinding extends ViewDataBinding {
   @NonNull
+  public final ImageView imageView;
+
+  @NonNull
   public final Button partyList;
 
+  @NonNull
+  public final TextView textView;
+
   protected FragmentMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button partyList) {
+      ImageView imageView, Button partyList, TextView textView) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.imageView = imageView;
     this.partyList = partyList;
+    this.textView = textView;
   }
 
   @NonNull

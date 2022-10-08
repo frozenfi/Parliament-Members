@@ -11,11 +11,15 @@
     <string name="add_comment_btn">Add Comment</string>
     <string name="app_name">ParliamentApplication</string>
     <string name="comment_hint">Please leave your comment here</string>
+    <string name="comment_lists">Comment Lists</string>
+    <string name="dislike_btn">dislike</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image_of_member">Image of Member</string>
     <string name="kd">Suomen Kristillisdemokraatit</string>
     <string name="kesk">Suomen Keskusta</string>
     <string name="kok">Kansallinen Kokoomus</string>
     <string name="liik">Liike Nyt</string>
+    <string name="like_button">like button</string>
     <string name="party_list">Party List</string>
     <string name="party_logo">Party Logo</string>
     <string name="party_logo1">Party Logo</string>

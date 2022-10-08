@@ -2512,6 +2512,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dislike
 drawable eduskunta
 drawable ic_baseline_post_add_24
 drawable ic_clock_black_24dp
@@ -2529,6 +2530,7 @@ drawable kd
 drawable kesk
 drawable kok
 drawable liik
+drawable like
 drawable loading_animation
 drawable loading_img
 drawable m3_appbar_background
@@ -2660,6 +2662,7 @@ id activity_chooser_view_content
 id add
 id add_comment
 id add_comment_btn
+id age
 id alertTitle
 id aligned
 id all
@@ -2761,6 +2764,7 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
+id downVote_btn
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -2804,7 +2808,6 @@ id floating
 id forever
 id fragment_container_view_tag
 id frost
-id fullNameTV
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
@@ -2826,9 +2829,11 @@ id horizontal_only
 id icon
 id icon_group
 id ifRoom
+id if_minister
 id ignore
 id ignoreRequest
 id image
+id imageView
 id immediateStop
 id included
 id info
@@ -2877,9 +2882,9 @@ id material_timepicker_view
 id material_value_index
 id matrix
 id memberDetails
-id memberIV
 id memberListFragment
 id member_designation
+id member_image
 id member_list
 id member_name
 id message
@@ -2917,6 +2922,7 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id myNavHostFragment
+id name
 id nav_controller_view_tag
 id nav_graph
 id nav_host_fragment_container
@@ -2952,9 +2958,9 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id party
 id partyList
 id partyListFragment
-id partyNameTV
 id party_list
 id party_logo
 id party_name
@@ -2973,6 +2979,7 @@ id progress_horizontal
 id progress_icon
 id progress_title
 id radio
+id rating_score
 id ratio
 id rectangles
 id reverseSawtooth
@@ -3071,6 +3078,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id textWatcher
 id text_input_end_icon
 id text_input_error_icon
@@ -3101,6 +3109,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id upVote_btn
 id useLogo
 id vertical_only
 id view_offset_helper
@@ -3362,7 +3371,9 @@ string clear_text_end_icon_content_description
 string close_drawer
 string close_sheet
 string comment_hint
+string comment_lists
 string default_error_message
+string dislike_btn
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
@@ -3370,6 +3381,7 @@ string fab_transformation_sheet_behavior
 string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string image_of_member
 string in_progress
 string indeterminate
 string installation_cancelled
@@ -3381,6 +3393,7 @@ string kesk
 string kok
 string label
 string liik
+string like_button
 string m3_ref_typeface_brand_medium
 string m3_ref_typeface_brand_regular
 string m3_ref_typeface_plain_medium

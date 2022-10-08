@@ -3,7 +3,9 @@ package com.example.parliamentapplication.fragment
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.*
+import android.widget.TextView
 import android.widget.Toast
+import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -11,12 +13,14 @@ import com.example.parliamentapplication.R
 import com.example.parliamentapplication.data.Feedback
 import com.example.parliamentapplication.data.MemberOfParliamentDatabase
 import com.example.parliamentapplication.databinding.FragmentMemberDetailsBinding
+
 import com.example.parliamentapplication.viewmodel.MemberDetailsViewModel
 import com.example.parliamentapplication.viewmodel.MemberDetailsViewModelFactory
 
 class MemberDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentMemberDetailsBinding
+    private lateinit var memberDetailsViewModel:MemberDetailsViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,9 +35,10 @@ class MemberDetailsFragment : Fragment() {
 
 
         val viewModelFactory = MemberDetailsViewModelFactory(dataSrc,argument.personNumber)
-        val memberDetailsViewModel = ViewModelProvider(this,viewModelFactory)[MemberDetailsViewModel::class.java]
+        memberDetailsViewModel = ViewModelProvider(this,viewModelFactory)[MemberDetailsViewModel::class.java]
 
 
+        binding.party.text= memberDetailsViewModel.updatePartyText()
 
         //Observe the member selected to update the comment
         var observeFeedback = Feedback(argument.personNumber,0, mutableListOf())
@@ -47,11 +52,13 @@ class MemberDetailsFragment : Fragment() {
             Toast.makeText(requireContext(), "Please add comment", Toast.LENGTH_SHORT).show()
         }
 
+        val memberObserved = Feedback(argument.personNumber,0, mutableListOf())
+
         memberDetailsViewModel.navigateToComment.observe(viewLifecycleOwner) { comment ->
             comment?.let {
                 this.findNavController().navigate(
                     MemberDetailsFragmentDirections.actionMemberDetailsToCommentFragment(
-                        argument.personNumber
+                        memberObserved
                     )
                 )
                 memberDetailsViewModel.navigateToCommentCompleted()
@@ -64,5 +71,7 @@ class MemberDetailsFragment : Fragment() {
 
         return binding.root
     }
+
+
 
 }

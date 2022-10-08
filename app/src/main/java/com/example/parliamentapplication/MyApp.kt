@@ -1,6 +1,7 @@
 package com.example.parliamentapplication
 
 import android.app.Application
+import android.content.Context
 import androidx.work.*
 import com.example.parliamentapplication.utils.RefreshDataWorker
 import kotlinx.coroutines.*
@@ -32,3 +33,4 @@ class MyApp: Application() {
         )
     }
 }
+

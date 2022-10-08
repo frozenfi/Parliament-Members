@@ -20,4 +20,8 @@
     <string name="add_comment">Add Comment</string>
     <string name="comment_hint">Please leave your comment here</string>
     <string name="add_comment_btn">Add Comment</string>
+    <string name="image_of_member">Image of Member</string>
+    <string name="like_button">like button</string>
+    <string name="dislike_btn">dislike</string>
+    <string name="comment_lists">Comment Lists</string>
 </resources>

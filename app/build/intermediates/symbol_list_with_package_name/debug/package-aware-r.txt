@@ -1255,6 +1255,7 @@ color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
+color app_color
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -2514,6 +2515,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable dislike
 drawable eduskunta
+drawable global_item
 drawable ic_baseline_post_add_24
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
@@ -2755,6 +2757,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id designation
 id dfn_progress_fragment
 id dialog_button
 id dimensions
@@ -2764,7 +2767,7 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
-id downVote_btn
+id dislike_btn
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -2829,7 +2832,6 @@ id horizontal_only
 id icon
 id icon_group
 id ifRoom
-id if_minister
 id ignore
 id ignoreRequest
 id image
@@ -2850,6 +2852,7 @@ id layout
 id left
 id leftToRight
 id legacy
+id like_btn
 id line1
 id line3
 id linear
@@ -3109,7 +3112,6 @@ id unchecked
 id uniform
 id unlabeled
 id up
-id upVote_btn
 id useLogo
 id vertical_only
 id view_offset_helper
@@ -3374,6 +3376,7 @@ string comment_hint
 string comment_lists
 string default_error_message
 string dislike_btn
+string dummy
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
@@ -3475,6 +3478,7 @@ string on
 string party_list
 string party_logo
 string party_logo1
+string party_name
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -3483,6 +3487,7 @@ string path_password_strike_through
 string progress
 string ps
 string r
+string rating
 string retry
 string sd
 string search_menu_title

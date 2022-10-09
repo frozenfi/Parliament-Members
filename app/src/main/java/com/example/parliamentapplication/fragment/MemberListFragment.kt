@@ -33,33 +33,41 @@ class MemberListFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val args = MemberListFragmentArgs.fromBundle(requireArguments())
 
-
+        //Initialize the viewModelFactory
         val viewModelFactory = MemberListViewModelFactory(
             MemberOfParliamentDatabase.getInstance(application).memberOfParliamentDAO,
             args.party
         )
 
+        //ViewModel initialized
         val memberViewModel = ViewModelProvider(this, viewModelFactory)[MemberViewModel::class.java]
 
-        binding.memberViewModel=memberViewModel
+        //binding the viewModel with the xml layout
+        binding.memberViewModel = memberViewModel
+
+        //Fragment view is specified as the lifeCycleOwner of binding
+        //Through this binding can observe the liveData
         binding.lifecycleOwner = viewLifecycleOwner
 
+        //Set the adapter for recycler view
         val adapter = MemberAdapter(MemberClickListener { personNumber ->
             memberViewModel.onMemberClicked(personNumber)
         })
 
         binding.memberList.adapter = adapter
 
+        //Observe the change in the List of members of parliament
         memberViewModel.parliamentMembers.observe(viewLifecycleOwner) {
             it?.let { adapter.submitList(it) }
         }
 
+        //Navigate to next fragment member details fragment
         memberViewModel.navigateToParliamentMemberDetails.observe(viewLifecycleOwner) { member ->
             member?.let {
                 this.findNavController().navigate(
                     MemberListFragmentDirections.actionMemberListFragmentToMemberDetails(member)
                 )
-               memberViewModel.onMemberDetailNavigated()
+                memberViewModel.onMemberDetailNavigated()
             }
         }
 

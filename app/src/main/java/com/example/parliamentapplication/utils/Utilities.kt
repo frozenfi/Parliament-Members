@@ -8,8 +8,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.parliamentapplication.R
 
+/*
+Utilities used to access through data binding in xml file
+ */
 
-
+//It set the party name format
 @BindingAdapter("partyNameFormatted")
 fun TextView.setPartyName(item: String){
     item.let{
@@ -28,6 +31,7 @@ fun TextView.setPartyName(item: String){
     }
 }
 
+//sets the party logo
 @BindingAdapter("partyLogoDisplay")
 fun ImageView.setPartyLogo(item: String){
     item.let{
@@ -49,6 +53,7 @@ fun ImageView.setPartyLogo(item: String){
 }
 
 
+//accessing the image url through glide library
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     val imageUrl =  "https://avoindata.eduskunta.fi/$imgUrl"

@@ -1,17 +1,17 @@
 package com.example.parliamentapplication.repo
 
-import android.media.Rating
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.parliamentapplication.ParliamentMembers
-import com.example.parliamentapplication.Party
 import com.example.parliamentapplication.api.ParliamentApi
 import com.example.parliamentapplication.api.ParliamentApiStatus
-import com.example.parliamentapplication.data.Feedback
 import com.example.parliamentapplication.data.MemberOfParliamentDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+/*
+Parliament member repository that contains database that is needed for the application
+ */
 class MembersRepo(private val memberDatabaseDao: MemberOfParliamentDao) {
 
     private val _status = MutableLiveData<ParliamentApiStatus>()
@@ -34,11 +34,6 @@ class MembersRepo(private val memberDatabaseDao: MemberOfParliamentDao) {
         return memberDatabaseDao.getMembersByParty(party)
     }
 
-    //String
-    fun getPartiesList(): LiveData<List<Party>> {
-        return memberDatabaseDao.getPartiesList()
-    }
-
     fun getParties(): LiveData<List<String>> {
         return memberDatabaseDao.getParties()
     }
@@ -47,16 +42,4 @@ class MembersRepo(private val memberDatabaseDao: MemberOfParliamentDao) {
         return memberDatabaseDao.getMemberById(id)
     }
 }
-    /*suspend fun insertRating(rating: Rating) {
-        memberDatabaseDao.insertRating(rating)
-    }
-    suspend fun insertComment(commentFeedback:Feedback) = memberDatabaseDao.insertComment(commentFeedback)
 
-    fun getComment(personNumber: Int):Feedback{
-       return memberDatabaseDao.getComment(personNumber)
-    }
-
-    fun getRating(personNumber: Int):LiveData<List<Double>> {
-        return memberDatabaseDao.getRating(personNumber)
-    }
-*/

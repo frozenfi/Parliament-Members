@@ -20,12 +20,13 @@ import com.example.parliamentapplication.viewmodel.MemberDetailsViewModelFactory
 class MemberDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentMemberDetailsBinding
-    private lateinit var memberDetailsViewModel:MemberDetailsViewModel
+    private lateinit var memberDetailsViewModel: MemberDetailsViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
+        // Inflate the layout for this fragment
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_member_details, container, false)
         val application = requireNotNull(this.activity).application
@@ -34,26 +35,33 @@ class MemberDetailsFragment : Fragment() {
         val dataSrc = MemberOfParliamentDatabase.getInstance(application).memberOfParliamentDAO
 
 
-        val viewModelFactory = MemberDetailsViewModelFactory(dataSrc,argument.personNumber)
-        memberDetailsViewModel = ViewModelProvider(this,viewModelFactory)[MemberDetailsViewModel::class.java]
+        //Initialize the viewModelFactory
+        val viewModelFactory = MemberDetailsViewModelFactory(dataSrc, argument.personNumber)
 
+        //ViewModel initialized
+        memberDetailsViewModel =
+            ViewModelProvider(this, viewModelFactory)[MemberDetailsViewModel::class.java]
 
-        binding.party.text= memberDetailsViewModel.updatePartyText()
+        //Fragment view is specified as the lifeCycleOwner of binding
+        //Through this binding can observe the liveData
+        binding.lifecycleOwner = viewLifecycleOwner
 
         //Observe the member selected to update the comment
-        var observeFeedback = Feedback(argument.personNumber,0, mutableListOf())
+        var observeFeedback = Feedback(argument.personNumber, 0, mutableListOf())
 
         memberDetailsViewModel.memberComment.observe(viewLifecycleOwner) {
-           observeFeedback = it!!
+            observeFeedback = it!!
         }
 
-        binding.addComment.setOnClickListener{
+        //Set onclick listener to the addComment button
+        binding.addComment.setOnClickListener {
             memberDetailsViewModel.onAddCommentBtnClicked(observeFeedback)
             Toast.makeText(requireContext(), "Please add comment", Toast.LENGTH_SHORT).show()
         }
 
-        val memberObserved = Feedback(argument.personNumber,0, mutableListOf())
+        val memberObserved = Feedback(argument.personNumber, 0, mutableListOf())
 
+        //navigate to comment fragment
         memberDetailsViewModel.navigateToComment.observe(viewLifecycleOwner) { comment ->
             comment?.let {
                 this.findNavController().navigate(
@@ -65,13 +73,26 @@ class MemberDetailsFragment : Fragment() {
             }
         }
 
-        binding.memberDetailsViewModel =memberDetailsViewModel
+        //onclick listener for the like button
+        binding.likeBtn.setOnClickListener {
+            Toast.makeText(requireContext(), "liked", Toast.LENGTH_SHORT).show()
+            memberDetailsViewModel.updateFeedback(1)
+            memberDetailsViewModel.memberComment.observe(viewLifecycleOwner) {
+                binding.ratingScore.text = memberDetailsViewModel.rating()
 
-        binding.lifecycleOwner = viewLifecycleOwner
+            }
+        }
+
+        binding.age.text = memberDetailsViewModel.updateAge()
+
+
+        //binding the viewModel with the xml layout
+        binding.memberDetailsViewModel = memberDetailsViewModel
+
+
 
         return binding.root
     }
-
 
 
 }

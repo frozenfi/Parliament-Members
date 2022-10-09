@@ -5,7 +5,7 @@ import androidx.room.*
 
 
 /*
-A database that stores the comment and rating data
+A database that stores the comment and rating information
 */
 
 @Database(entities = [Feedback::class], version = 1, exportSchema = false)

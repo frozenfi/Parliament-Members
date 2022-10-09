@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="app_color">#2FC5C3</color>
     <color name="black">#FF000000</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -13,6 +14,7 @@
     <string name="comment_hint">Please leave your comment here</string>
     <string name="comment_lists">Comment Lists</string>
     <string name="dislike_btn">dislike</string>
+    <string name="dummy">This is just a long text to check the option</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="image_of_member">Image of Member</string>
     <string name="kd">Suomen Kristillisdemokraatit</string>
@@ -23,8 +25,10 @@
     <string name="party_list">Party List</string>
     <string name="party_logo">Party Logo</string>
     <string name="party_logo1">Party Logo</string>
+    <string name="party_name">Party: @{memberDetailsViewModel.member.party}</string>
     <string name="ps">Perussuomalaise</string>
     <string name="r">Ruotsalainen kansanpuolue</string>
+    <string name="rating">Rating:</string>
     <string name="sd">Suomen Sosialidemokraattinen puolue</string>
     <string name="title">Title</string>
     <string name="vas">Left Alliance</string>

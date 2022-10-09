@@ -10,8 +10,11 @@ import com.example.parliamentapplication.repo.FeedbackRepo
 import com.example.parliamentapplication.repo.MembersRepo
 import kotlinx.coroutines.launch
 
-
-class CommentViewModel(feedback: Feedback, application: Application) : AndroidViewModel(application) {
+/*
+ViewModel for comments
+ */
+class CommentViewModel(feedback: Feedback, application: Application) :
+    AndroidViewModel(application) {
 
     private val feedbackDatabase = FeedbackDatabase.getInstance(application)
     private val feedbackRepo = FeedbackRepo(feedbackDatabase)
@@ -30,6 +33,7 @@ class CommentViewModel(feedback: Feedback, application: Application) : AndroidVi
         }
     }
 
+    //updates the feedback through coroutine
     fun updateFeedback(addComment: String) {
         viewModelScope.launch {
             val newFeedback = _memberFeedback.value?.let {
@@ -47,7 +51,10 @@ class CommentViewModel(feedback: Feedback, application: Application) : AndroidVi
     }
 
 }
-
+/*
+ViewModel factory class for the instantiating the viewModel class
+IDE throws error without the use of ViewModelFactory class
+ */
 
 class CommentViewModelFactory(
     private val feedback: Feedback,
@@ -61,51 +68,3 @@ class CommentViewModelFactory(
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
-
-
-/*
-class CommentViewModel(application: Application):ViewModel() {
-   private val feedbackRepo:FeedbackRepo
-   private lateinit var memRepo:MembersRepo
-    private val memDao = MemberOfParliamentDatabase.getInstance(application).memberOfParliamentDAO
-
-
-    private lateinit var _memberDetail:LiveData<ParliamentMembers>
-   val memberDetail:LiveData<ParliamentMembers>
-   get() = _memberDetail
-
-    private lateinit var _memberFeedback:LiveData<List<Comment>>
-    val memberFeedback: LiveData<List<Comment>>
-    get() = _memberFeedback
-
-    init {
-        val feedbackDao = FeedbackDatabase.getInstance(application).feedbackDao
-        feedbackRepo = FeedbackRepo(feedbackDao)
-
-
-    }
-
-
-    fun getComment(personNumber: Int) {
-        _memberFeedback = feedbackRepo.getComment(personNumber)
-
-    }
-
-    fun getMember(personNumber:Int) {
-        memRepo = MembersRepo(memDao)
-        _memberDetail = memRepo.getMembersWithPersonNumber(personNumber)
-    }
-
-}
-class CommentViewModelFactory(
-    val application: Application
-):ViewModelProvider.Factory {
-    @Suppress("unchecked_cast")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(CommentViewModel::class.java)) {
-            return CommentViewModel(application) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
-    }
-}
-*/

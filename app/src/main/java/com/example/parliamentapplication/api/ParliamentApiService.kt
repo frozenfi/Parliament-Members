@@ -8,7 +8,6 @@ import retrofit2.http.GET
 import com.example.parliamentapplication.ParliamentMembers
 
 
-
 private const val BASE_URL = "https://users.metropolia.fi/~peterh/"
 
 
@@ -29,13 +28,13 @@ private val retrofit = Retrofit.Builder()
 //Data fetching function
 interface ParliamentApiService {
     @GET("mps.json")
-    suspend fun getParliamentMembers():List<ParliamentMembers> // Removed suspend
+    suspend fun getParliamentMembers(): List<ParliamentMembers> // Removed suspend
 }
 
 
 //Retrofit Service
-object ParliamentApi{
+object ParliamentApi {
     val parliamentMembers: ParliamentApiService = retrofit.create(ParliamentApiService::class.java)
 }
 
-enum class ParliamentApiStatus{LOADING, DONE}
+enum class ParliamentApiStatus { LOADING, DONE }

@@ -29,10 +29,13 @@ public abstract class FragmentMemberDetailsBinding extends ViewDataBinding {
   public final TextView constituency;
 
   @NonNull
-  public final ImageButton downVoteBtn;
+  public final TextView designation;
 
   @NonNull
-  public final TextView ifMinister;
+  public final ImageButton dislikeBtn;
+
+  @NonNull
+  public final ImageButton likeBtn;
 
   @NonNull
   public final ImageView memberImage;
@@ -46,27 +49,24 @@ public abstract class FragmentMemberDetailsBinding extends ViewDataBinding {
   @NonNull
   public final TextView ratingScore;
 
-  @NonNull
-  public final ImageButton upVoteBtn;
-
   @Bindable
   protected MemberDetailsViewModel mMemberDetailsViewModel;
 
   protected FragmentMemberDetailsBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button addComment, TextView age, TextView constituency, ImageButton downVoteBtn,
-      TextView ifMinister, ImageView memberImage, TextView name, TextView party,
-      TextView ratingScore, ImageButton upVoteBtn) {
+      Button addComment, TextView age, TextView constituency, TextView designation,
+      ImageButton dislikeBtn, ImageButton likeBtn, ImageView memberImage, TextView name,
+      TextView party, TextView ratingScore) {
     super(_bindingComponent, _root, _localFieldCount);
     this.addComment = addComment;
     this.age = age;
     this.constituency = constituency;
-    this.downVoteBtn = downVoteBtn;
-    this.ifMinister = ifMinister;
+    this.designation = designation;
+    this.dislikeBtn = dislikeBtn;
+    this.likeBtn = likeBtn;
     this.memberImage = memberImage;
     this.name = name;
     this.party = party;
     this.ratingScore = ratingScore;
-    this.upVoteBtn = upVoteBtn;
   }
 
   public abstract void setMemberDetailsViewModel(

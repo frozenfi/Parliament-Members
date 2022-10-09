@@ -17,34 +17,36 @@ import com.example.parliamentapplication.viewmodel.CommentViewModel
 import com.example.parliamentapplication.viewmodel.CommentViewModelFactory
 
 
-
 class CommentFragment : Fragment() {
 
     private lateinit var binding: FragmentCommentBinding
     private lateinit var commentViewModel: CommentViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_comment, container, false)
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_comment, container, false)
         val application = requireNotNull(activity).application
         val feedback = CommentFragmentArgs.fromBundle(this.requireArguments()).feedback
 
+        //Initialize the viewModelFactory
+        val commentViewModelFactory = CommentViewModelFactory(feedback, application)
 
-        val commentViewModelFactory = CommentViewModelFactory(feedback,application)
+        //ViewModel initialized
         commentViewModel =
             ViewModelProvider(this, commentViewModelFactory)[CommentViewModel::class.java]
 
+        //bind the viewmodel with the related xml file
         binding.commentViewModel = commentViewModel
 
         val adapter = CommentAdapter()
         binding.commentList.adapter = adapter
 
+        //function update UI called
         updateCommentUI(adapter)
 
+        //onClick listener for the add comment button
         binding.addCommentBtn.setOnClickListener() {
             requireView().hideKeyboard()
             val addComment = binding.editComment.text.toString()
@@ -55,6 +57,8 @@ class CommentFragment : Fragment() {
         return binding.root
     }
 
+
+    //internal function to update the UI with the comments
     private fun updateCommentUI(adapter: CommentAdapter) {
         commentViewModel.memberFeedback.observe(viewLifecycleOwner, Observer {
             it?.let {
@@ -63,50 +67,12 @@ class CommentFragment : Fragment() {
         })
     }
 
+    //funtion to hide keyboard
     private fun View.hideKeyboard() {
-        val inputMethodManager = context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
     }
 }
 
-/*
-class CommentFragment:Fragment() {
-    private lateinit var binding: FragmentCommentBinding
-    private lateinit var commentViewModel: CommentViewModel
 
-    private val args:MemberDetailsFragmentArgs by navArgs()
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding =DataBindingUtil.inflate(inflater,R.layout.fragment_comment,container,false)
-
-        binding.lifecycleOwner =viewLifecycleOwner
-        val application = requireNotNull(this.activity).application
-
-        val personNumber = args.personNumber
-
-        commentViewModel = ViewModelProvider(this,CommentViewModelFactory(application))[CommentViewModel::class.java]
-
-        commentViewModel.getMember(personNumber)
-
-        commentViewModel.memberDetail.observe(viewLifecycleOwner, Observer {
-            member-> member?.let {
-                binding.member = member
-        }
-        })
-
-        commentViewModel.getComment(personNumber)
-
-        val adapter = CommentAdapter()
-        binding.recyclerView.adapter=adapter
-
-        commentViewModel.memberFeedback.observe(viewLifecycleOwner, Observer {
-            adapter.submitList(it)
-        })
-        return binding.root
-    }
-}
-*/

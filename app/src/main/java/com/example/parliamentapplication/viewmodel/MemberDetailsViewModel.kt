@@ -1,32 +1,31 @@
 package com.example.parliamentapplication.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.*
 import com.example.parliamentapplication.ParliamentMembers
 import com.example.parliamentapplication.data.Feedback
-import com.example.parliamentapplication.data.FeedbackDao
-import com.example.parliamentapplication.data.FeedbackDatabase
 import com.example.parliamentapplication.data.MemberOfParliamentDao
-import com.example.parliamentapplication.repo.FeedbackRepo
 import com.example.parliamentapplication.repo.MembersRepo
+import com.example.parliamentapplication.utils.ViewModelUtils
 import kotlinx.coroutines.launch
-import java.util.zip.ZipEntry
 
-class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : ViewModel() {
+/*
+ViewModel class for MemberDetails fragment
+ */
+class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : ViewModel(),
+    ViewModelUtils {
 
-
-    //LiveData object that observe and update Member
     private var _selectedMember = MutableLiveData<LiveData<ParliamentMembers>>()
     val member: LiveData<LiveData<ParliamentMembers>>
         get() = _selectedMember
 
     private var _selectMember = MutableLiveData<ParliamentMembers>()
-    val selectMember: LiveData<ParliamentMembers>
+    override val selectMember: LiveData<ParliamentMembers>
         get() = _selectMember
 
+
     //LiveData objects that observe and update member comment information
-    private var _memberComment = MutableLiveData<Feedback?>()
-    val memberComment: LiveData<Feedback?>
+    private var _memberComment = MutableLiveData<Feedback>()
+    override val memberComment: LiveData<Feedback>
         get() = _memberComment
 
     init {
@@ -38,13 +37,13 @@ class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : View
         viewModelScope.launch {
             val memberFeedback = _memberComment.value?.let { it ->
                 Feedback(
-                    it.personNumber as Int,
-                    it.rating.plus(newRating) ?: 0,
+                    it.personNumber,
+                    it.rating.plus(newRating),
                     it.comment.toMutableList()
                 )
             }
             if (memberFeedback != null) {
-                _memberComment.value = memberFeedback
+                _memberComment.value = memberFeedback!!
             }
         }
     }
@@ -61,24 +60,12 @@ class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : View
         _navigateToComment.value = null
     }
 
-    fun updatePartyText():String {
-        val partyName = when(selectMember.value?.party) {
-                "kd" -> "Christian Democrats"
-                "kesk" -> "Centre Party"
-                "kok" -> "National Coalition Party"
-                "liik" -> "Movement Now"
-                "ps" -> "Finns party"
-                "r" -> "Swedish People's Party"
-                "sd" -> "Social Democratic Party"
-                "vas" -> "Left Alliance"
-                "vihr" -> "Green League"
-                else -> ""
-        }
-        return "Party: $partyName"
-    }
-
 }
 
+/*
+ViewModel factory class for the instantiating the viewModel class
+IDE throws error without the use of ViewModelFactory class
+ */
 class MemberDetailsViewModelFactory(
     private val parliamentDAO: MemberOfParliamentDao,
     //private val feedbackDao: FeedbackDao,

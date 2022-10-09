@@ -14,18 +14,17 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: FragmentMainBinding
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-
         binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_main, container, false
+            inflater, R.layout.fragment_main, container, false
         )
 
+        //set onclick listener for the partyList button
         binding.partyList.setOnClickListener {
 
+            //Navigate to party list fragment
             val action = MainFragmentDirections.actionMainFragmentToPartyListFragment()
             findNavController().navigate(action)
         }

@@ -23,9 +23,9 @@ class TypeConverter {
         @SuppressLint("SuspiciousIndentation")
         @TypeConverter
         private fun stringToComment(storedString: String): List<String> {
-        val listOfComment:List<String> = storedString.split(";").filter {
-            it.isNotEmpty()
-        }.toList()
+            val listOfComment: List<String> = storedString.split(";").filter {
+                it.isNotEmpty()
+            }.toList()
             return listOfComment
 
         }
@@ -33,7 +33,7 @@ class TypeConverter {
         @TypeConverter
         private fun commentToString(listOfComment: MutableList<String>): String {
             var storedString = ""
-            for(comment in listOfComment){
+            for (comment in listOfComment) {
                 storedString += "$comment;"
             }
             return storedString

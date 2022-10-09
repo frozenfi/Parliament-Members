@@ -17,15 +17,3 @@ data class Rating(
 
 )
 
-@Entity(tableName = "comment_db")
-data class Comment(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-
-    @ColumnInfo(name = "personNumber")
-    val personNumber: Int,
-
-    @ColumnInfo(name = "comment")
-    val comment: String
-        )
-

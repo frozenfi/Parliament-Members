@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.parliamentapplication.ParliamentMembers
 import com.example.parliamentapplication.databinding.MemberListItemBinding
 
-class MemberAdapter(private val clickListener: MemberClickListener): ListAdapter<ParliamentMembers, MemberAdapter.ViewHolder>(
-    MemberDiffCallBack()
-) {
-    class ViewHolder private constructor(private val binding: MemberListItemBinding):RecyclerView.ViewHolder(binding.root) {
+class MemberAdapter(private val clickListener: MemberClickListener) :
+    ListAdapter<ParliamentMembers, MemberAdapter.ViewHolder>(
+        MemberDiffCallBack()
+    ) {
+    class ViewHolder private constructor(private val binding: MemberListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ParliamentMembers, clickListener: MemberClickListener) {
             binding.member = item
             binding.clickListener = clickListener
@@ -19,13 +21,14 @@ class MemberAdapter(private val clickListener: MemberClickListener): ListAdapter
 
 
             binding.memberName.text = item.fullName
-            binding.memberDesignation.text = if(item.minister) "Minister" else "Parliament Member"
+            binding.memberDesignation.text = if (item.minister) "Minister" else "Parliament Member"
 
         }
+
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = MemberListItemBinding.inflate(layoutInflater,parent,false)
+                val binding = MemberListItemBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }
@@ -37,23 +40,27 @@ class MemberAdapter(private val clickListener: MemberClickListener): ListAdapter
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position),clickListener)
+        holder.bind(getItem(position), clickListener)
     }
 }
 
+//Default class that come along when ListAdapter is used
+//Use DiffCallBack to update the changes in the list
 
-
-class MemberClickListener(val clickListener: (personNumber:Int)->Unit) {
-    fun onClick(members: ParliamentMembers) = clickListener(members.personNumber)
-}
-
-class MemberDiffCallBack:DiffUtil.ItemCallback<ParliamentMembers>() {
+class MemberDiffCallBack : DiffUtil.ItemCallback<ParliamentMembers>() {
     override fun areItemsTheSame(oldItem: ParliamentMembers, newItem: ParliamentMembers): Boolean {
         return oldItem.personNumber == newItem.personNumber
     }
 
-    override fun areContentsTheSame(oldItem: ParliamentMembers, newItem: ParliamentMembers): Boolean {
+    override fun areContentsTheSame(
+        oldItem: ParliamentMembers,
+        newItem: ParliamentMembers
+    ): Boolean {
         return oldItem == newItem
     }
 
+}
+
+class MemberClickListener(val clickListener: (personNumber: Int) -> Unit) {
+    fun onClick(members: ParliamentMembers) = clickListener(members.personNumber)
 }

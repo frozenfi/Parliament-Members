@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
-
+//Feedback table having the column personNumber, rating and comment
 @Entity(tableName = "feedback_database")
 @Parcelize
 data class Feedback(

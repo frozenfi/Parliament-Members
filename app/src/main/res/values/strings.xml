@@ -24,4 +24,7 @@
     <string name="like_button">like button</string>
     <string name="dislike_btn">dislike</string>
     <string name="comment_lists">Comment Lists</string>
+    <string name="party_name">Party: @{memberDetailsViewModel.member.party}</string>
+    <string name="rating">Rating:</string>
+    <string name="dummy">This is just a long text to check the option</string>
 </resources>

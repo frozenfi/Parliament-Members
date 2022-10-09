@@ -1,16 +1,12 @@
 package com.example.parliamentapplication
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.view.MenuItem
 
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-
-
 import com.example.parliamentapplication.databinding.ActivityMainBinding
-
 
 
 class MainActivity : AppCompatActivity() {

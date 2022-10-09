@@ -1,5 +1,6 @@
 R_DEF: Internal format may change without notice
 local
+color app_color
 color black
 color purple_200
 color purple_500
@@ -10,6 +11,7 @@ color white
 drawable arrow_back
 drawable dislike
 drawable eduskunta
+drawable global_item
 drawable ic_baseline_post_add_24
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -40,10 +42,11 @@ id comment_item
 id comment_list
 id comment_list_container
 id constituency
-id downVote_btn
+id designation
+id dislike_btn
 id edit_comment
-id if_minister
 id imageView
+id like_btn
 id mainFragment
 id memberDetails
 id memberListFragment
@@ -63,7 +66,6 @@ id party_name
 id party_text_view
 id rating_score
 id textView
-id upVote_btn
 layout activity_main
 layout card_item
 layout comment_item
@@ -83,6 +85,7 @@ string app_name
 string comment_hint
 string comment_lists
 string dislike_btn
+string dummy
 string hello_blank_fragment
 string image_of_member
 string kd
@@ -93,8 +96,10 @@ string like_button
 string party_list
 string party_logo
 string party_logo1
+string party_name
 string ps
 string r
+string rating
 string sd
 string title
 string vas

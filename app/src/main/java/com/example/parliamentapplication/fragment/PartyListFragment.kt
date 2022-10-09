@@ -1,14 +1,12 @@
 package com.example.parliamentapplication.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.*
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.parliamentapplication.R
 import com.example.parliamentapplication.adapter.PartyAdapter
@@ -28,32 +26,43 @@ class PartyListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        //Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_party_list, container, false)
         val application = requireNotNull(this.activity).application
+
+        //Initialize the viewModelFactory
         val viewModelFactory =
             PartyViewModelFactory(MemberOfParliamentDatabase.getInstance(application).memberOfParliamentDAO)
 
+        //ViewModel initialized
         val partyViewModel = ViewModelProvider(this, viewModelFactory)[PartyViewModel::class.java]
 
+        //Fragment view is specified as the lifeCycleOwner of binding
+        //Through this binding can observe the liveData
         binding.lifecycleOwner = viewLifecycleOwner
 
+        //Set the adapter for recycler view
         val adapter = PartyAdapter(PartyClickListener { party ->
             partyViewModel.onPartyClicked(party)
         })
 
         binding.partyList.adapter = adapter
 
+        //Observe the change in the List of Party
         partyViewModel.parties.observe(viewLifecycleOwner) {
             it.let {
                 adapter.submitList(it)
             }
         }
+
+        //Navigate to the fragment for list of Members
         partyViewModel.navigateToPartySelected.observe(viewLifecycleOwner) { party ->
             party?.let {
                 view?.findNavController()?.navigate(PartyListFragmentDirections.actionPartyListFragmentToMemberListFragment(party))
                 partyViewModel.onNavigateToPartySelected()
             }
         }
+
 
         binding.partyList.layoutManager =LinearLayoutManager(requireContext())
 

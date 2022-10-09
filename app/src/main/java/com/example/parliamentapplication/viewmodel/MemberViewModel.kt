@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.parliamentapplication.data.MemberOfParliamentDao
 import com.example.parliamentapplication.repo.MembersRepo
+/*
+ViewModel class for MemberListFragment
+ */
 
 class MemberViewModel(membersRepo: MembersRepo, party: String) : ViewModel() {
 
@@ -26,6 +29,10 @@ class MemberViewModel(membersRepo: MembersRepo, party: String) : ViewModel() {
 
 }
 
+/*
+ViewModel factory class for the instantiating the viewModel class
+IDE throws error without the use of ViewModelFactory class
+ */
 class MemberListViewModelFactory(
     private val memberDao: MemberOfParliamentDao,
     private val party: String

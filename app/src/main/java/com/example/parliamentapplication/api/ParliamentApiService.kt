@@ -1,5 +1,10 @@
 package com.example.parliamentapplication.api
 
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 02.10.2022
+*/
 import com.squareup.moshi.Moshi
 import retrofit2.Retrofit
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

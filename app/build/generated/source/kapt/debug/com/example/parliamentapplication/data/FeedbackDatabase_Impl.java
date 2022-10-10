@@ -34,7 +34,7 @@ public final class FeedbackDatabase_Impl extends FeedbackDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(3) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `feedback_database` (`personNumber` INTEGER NOT NULL, `rating` INTEGER NOT NULL, `comment` TEXT NOT NULL, PRIMARY KEY(`personNumber`))");

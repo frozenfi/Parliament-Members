@@ -1,5 +1,10 @@
 package com.example.parliamentapplication.data
 
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 07.10.2022
+*/
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity

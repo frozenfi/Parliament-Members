@@ -1,5 +1,9 @@
 package com.example.parliamentapplication.utils
-
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 08.10.2022
+*/
 import androidx.lifecycle.LiveData
 import com.example.parliamentapplication.ParliamentMembers
 import com.example.parliamentapplication.data.Feedback
@@ -18,6 +22,7 @@ interface ViewModelUtils {
         return if(age<Calendar.getInstance().get(Calendar.YEAR)) "Age: \n $age" else "Age: \n Error "
     }
 
+
     fun updateParty():String{
         val party = when(selectMember.value?.party) {
             "kd" -> "Suomen Kristillisdemokratit"
@@ -34,7 +39,5 @@ interface ViewModelUtils {
         return "Party: \n $party"
     }
 
-    fun rating():String {
-        return "Rating: ${memberComment.value?.rating.toString()}"
-    }
+
  }

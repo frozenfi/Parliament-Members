@@ -1,11 +1,15 @@
 package com.example.parliamentapplication.repo
-
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 02.10.2022
+*/
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.parliamentapplication.ParliamentMembers
 import com.example.parliamentapplication.api.ParliamentApi
 import com.example.parliamentapplication.api.ParliamentApiStatus
-import com.example.parliamentapplication.data.MemberOfParliamentDao
+import com.example.parliamentapplication.data.membersdata.MemberOfParliamentDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

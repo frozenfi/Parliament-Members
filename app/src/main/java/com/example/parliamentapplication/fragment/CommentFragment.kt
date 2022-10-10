@@ -1,5 +1,10 @@
 package com.example.parliamentapplication.fragment
 
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 08.10.2022
+*/
 import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +15,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.parliamentapplication.MainActivity
 import com.example.parliamentapplication.R
 import com.example.parliamentapplication.adapter.CommentAdapter
 import com.example.parliamentapplication.databinding.FragmentCommentBinding
@@ -73,6 +79,7 @@ class CommentFragment : Fragment() {
             context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
     }
+
 }
 
 

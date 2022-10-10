@@ -14,8 +14,8 @@ public class MemberListItemBindingImpl extends MemberListItemBinding implements 
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.member_designation, 1);
-        sViewsWithIds.put(R.id.member_name, 2);
+        sViewsWithIds.put(R.id.member_designation, 2);
+        sViewsWithIds.put(R.id.member_name, 3);
     }
     // views
     @NonNull
@@ -28,13 +28,15 @@ public class MemberListItemBindingImpl extends MemberListItemBinding implements 
     // Inverse Binding Event Handlers
 
     public MemberListItemBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 3, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 4, sIncludes, sViewsWithIds));
     }
     private MemberListItemBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.TextView) bindings[1]
+            , (android.widget.ImageView) bindings[1]
             , (android.widget.TextView) bindings[2]
+            , (android.widget.TextView) bindings[3]
             );
+        this.imageView2.setTag(null);
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
         setRootTag(root);
@@ -109,7 +111,23 @@ public class MemberListItemBindingImpl extends MemberListItemBinding implements 
         }
         com.example.parliamentapplication.ParliamentMembers member = mMember;
         com.example.parliamentapplication.adapter.MemberClickListener clickListener = mClickListener;
+        java.lang.String memberPicture = null;
+
+        if ((dirtyFlags & 0x5L) != 0) {
+
+
+
+                if (member != null) {
+                    // read member.picture
+                    memberPicture = member.getPicture();
+                }
+        }
         // batch finished
+        if ((dirtyFlags & 0x5L) != 0) {
+            // api target 1
+
+            com.example.parliamentapplication.utils.UtilitiesKt.bindImage(this.imageView2, memberPicture);
+        }
         if ((dirtyFlags & 0x4L) != 0) {
             // api target 1
 

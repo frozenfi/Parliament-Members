@@ -8,16 +8,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.parliamentapplication.MainActivity
 import com.example.parliamentapplication.R
 import com.example.parliamentapplication.adapter.PartyAdapter
 import com.example.parliamentapplication.adapter.PartyClickListener
-import com.example.parliamentapplication.data.MemberOfParliamentDatabase
+import com.example.parliamentapplication.data.membersdata.MemberOfParliamentDatabase
 import com.example.parliamentapplication.databinding.FragmentPartyListBinding
 import com.example.parliamentapplication.viewmodel.PartyViewModel
 import com.example.parliamentapplication.viewmodel.PartyViewModelFactory
 
-
-@Suppress("DEPRECATION", "COMPATIBILITY_WARNING")
+@Suppress("COMPATIBILITY_WARNING", "DEPRECATION")
 class PartyListFragment : Fragment() {
     private lateinit var binding: FragmentPartyListBinding
 
@@ -62,13 +62,16 @@ class PartyListFragment : Fragment() {
                 partyViewModel.onNavigateToPartySelected()
             }
         }
-
-
         binding.partyList.layoutManager =LinearLayoutManager(requireContext())
 
 
         return binding.root
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as MainActivity).supportActionBar?.title ="Party List"
     }
 
 }

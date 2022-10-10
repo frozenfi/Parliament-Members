@@ -1,5 +1,10 @@
 package com.example.parliamentapplication.fragment
 
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 03.10.2022
+*/
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

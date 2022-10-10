@@ -17,7 +17,6 @@ public final class MyApp extends android.app.Application {
     private final void delayedInit() {
     }
     
-    @kotlin.Suppress(names = {"DEPRECATION"})
     private final void setupWork() {
     }
 }

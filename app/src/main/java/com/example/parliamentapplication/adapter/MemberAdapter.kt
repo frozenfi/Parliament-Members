@@ -1,5 +1,10 @@
 package com.example.parliamentapplication.adapter
 
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 06.10.2022
+*/
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil

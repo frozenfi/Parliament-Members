@@ -1,19 +1,25 @@
 package com.example.parliamentapplication.fragment
 
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 05.10.2022
+*/
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.*
-import android.widget.TextView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.parliamentapplication.MainActivity
 import com.example.parliamentapplication.R
 import com.example.parliamentapplication.data.Feedback
-import com.example.parliamentapplication.data.MemberOfParliamentDatabase
+import com.example.parliamentapplication.data.membersdata.MemberOfParliamentDatabase
 import com.example.parliamentapplication.databinding.FragmentMemberDetailsBinding
-
 import com.example.parliamentapplication.viewmodel.MemberDetailsViewModel
 import com.example.parliamentapplication.viewmodel.MemberDetailsViewModelFactory
 
@@ -73,26 +79,36 @@ class MemberDetailsFragment : Fragment() {
             }
         }
 
-        //onclick listener for the like button
-        binding.likeBtn.setOnClickListener {
-            Toast.makeText(requireContext(), "liked", Toast.LENGTH_SHORT).show()
-            memberDetailsViewModel.updateFeedback(1)
-            memberDetailsViewModel.memberComment.observe(viewLifecycleOwner) {
-                binding.ratingScore.text = memberDetailsViewModel.rating()
+        /*
+        //I will implement it later
+      //onclick listener for the like button
+      binding.likeBtn.setOnClickListener {
+          Toast.makeText(requireContext(), "liked", Toast.LENGTH_SHORT).show()
+          memberDetailsViewModel.updateFeedback(1)
+          memberDetailsViewModel.memberComment.observe(viewLifecycleOwner) {
+              binding.ratingScore.text = memberDetailsViewModel.rating()
 
-            }
-        }
+          }
+      }
 
-        binding.age.text = memberDetailsViewModel.updateAge()
-
+           //binding set for twitter link but for some reason not working
+      binding.button.setOnClickListener{
+          memberDetailsViewModel.twitterLink.observe(viewLifecycleOwner) {
+              val intent = Intent(Intent.ACTION_VIEW)
+              intent.data = Uri.parse(it)
+              startActivity(intent)
+          }
+      }
+       */
 
         //binding the viewModel with the xml layout
         binding.memberDetailsViewModel = memberDetailsViewModel
 
-
-
         return binding.root
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as MainActivity).supportActionBar?.title ="Member Details"
+    }
 }

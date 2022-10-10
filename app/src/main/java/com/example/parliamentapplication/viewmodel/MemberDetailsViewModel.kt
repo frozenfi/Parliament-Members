@@ -1,9 +1,14 @@
 package com.example.parliamentapplication.viewmodel
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 05.10.2022
+*/
 
 import androidx.lifecycle.*
 import com.example.parliamentapplication.ParliamentMembers
 import com.example.parliamentapplication.data.Feedback
-import com.example.parliamentapplication.data.MemberOfParliamentDao
+import com.example.parliamentapplication.data.membersdata.MemberOfParliamentDao
 import com.example.parliamentapplication.repo.MembersRepo
 import com.example.parliamentapplication.utils.ViewModelUtils
 import kotlinx.coroutines.launch
@@ -15,7 +20,7 @@ class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : View
     ViewModelUtils {
 
     private var _selectedMember = MutableLiveData<LiveData<ParliamentMembers>>()
-    val member: LiveData<LiveData<ParliamentMembers>>
+    val selectedMember: LiveData<LiveData<ParliamentMembers>>
         get() = _selectedMember
 
     private var _selectMember = MutableLiveData<ParliamentMembers>()
@@ -28,11 +33,41 @@ class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : View
     override val memberComment: LiveData<Feedback>
         get() = _memberComment
 
+
     init {
         _selectedMember.value = membersRepo.getMembersWithPersonNumber(personNumber)
-
     }
 
+    fun rating(): String {
+        return "Rating: ${memberComment.value?.rating.toString()}"
+    }
+
+    val twitterLink: LiveData<String> = Transformations.map(selectMember) { member ->
+        member.twitter
+    }
+
+    //TO BE IMPLEMENTED LATER
+    /*
+        fun likeMember(){
+            viewModelScope.launch {
+                _selectedMember.value?.value?.let {
+                    likeRepo.likeMember(it.personNumber)
+                }
+            }
+        }
+
+
+    //TO BE IMPLEMENTED LATER
+        fun disLikeMember(){
+            viewModelScope.launch {
+                _selectedMember.value?.value?.let {
+                    likeRepo.dislikeMember(it.personNumber)
+                }
+            }
+        }
+
+
+     */
     fun updateFeedback(newRating: Int) {
         viewModelScope.launch {
             val memberFeedback = _memberComment.value?.let { it ->
@@ -48,8 +83,8 @@ class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : View
         }
     }
 
-    private val _navigateToComment = MutableLiveData<Feedback>()
-    val navigateToComment: LiveData<Feedback>
+    private val _navigateToComment = MutableLiveData<Feedback?>()
+    val navigateToComment: MutableLiveData<Feedback?>
         get() = _navigateToComment
 
     fun onAddCommentBtnClicked(feedback: Feedback) {
@@ -60,6 +95,7 @@ class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : View
         _navigateToComment.value = null
     }
 
+
 }
 
 /*
@@ -68,7 +104,6 @@ IDE throws error without the use of ViewModelFactory class
  */
 class MemberDetailsViewModelFactory(
     private val parliamentDAO: MemberOfParliamentDao,
-    //private val feedbackDao: FeedbackDao,
     private val personNumber: Int
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")

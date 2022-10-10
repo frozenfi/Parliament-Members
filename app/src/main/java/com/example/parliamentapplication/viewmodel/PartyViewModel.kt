@@ -1,14 +1,18 @@
 package com.example.parliamentapplication.viewmodel
-
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 04.10.2022
+*/
 import androidx.lifecycle.*
-import com.example.parliamentapplication.data.MemberOfParliamentDao
+import com.example.parliamentapplication.data.membersdata.MemberOfParliamentDao
 import com.example.parliamentapplication.repo.MembersRepo
+
 /*
 VieModel class for Party Fragment
  */
 class PartyViewModel(membersRepo: MembersRepo) : ViewModel() {
     val parties = membersRepo.getParties()
-    val status = membersRepo.status
 
 
     private val _navigateToPartySelected = MutableLiveData<String?>()

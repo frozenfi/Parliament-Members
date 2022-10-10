@@ -1,5 +1,10 @@
 package com.example.parliamentapplication.data
 
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 07.10.2022
+*/
 import android.content.Context
 import androidx.room.*
 
@@ -8,14 +13,14 @@ import androidx.room.*
 A database that stores the comment and rating information
 */
 
-@Database(entities = [Feedback::class], version = 1, exportSchema = false)
+@Database(entities = [Feedback::class], version =3, exportSchema = false)
 @TypeConverters(TypeConverter::class)
 abstract class FeedbackDatabase:RoomDatabase() {
-    abstract val feedbackDao:FeedbackDao
+    abstract val feedbackDao: FeedbackDao
 
     companion object{
         @Volatile
-        private var INSTANCE:FeedbackDatabase? = null
+        private var INSTANCE: FeedbackDatabase? = null
 
         fun getInstance(context: Context): FeedbackDatabase {
             synchronized(this) {

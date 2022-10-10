@@ -1,5 +1,9 @@
 package com.example.parliamentapplication.fragment
-
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 07.10.2022
+*/
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.*
@@ -8,15 +12,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.parliamentapplication.R
 import com.example.parliamentapplication.adapter.MemberAdapter
 import com.example.parliamentapplication.adapter.MemberClickListener
-import com.example.parliamentapplication.data.MemberOfParliamentDatabase
+import com.example.parliamentapplication.data.membersdata.MemberOfParliamentDatabase
 import com.example.parliamentapplication.databinding.FragmentMemberListBinding
 import com.example.parliamentapplication.viewmodel.MemberListViewModelFactory
 import com.example.parliamentapplication.viewmodel.MemberViewModel
-import kotlinx.android.synthetic.main.fragment_member_list.view.*
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.parliamentapplication.MainActivity
 
 
 class MemberListFragment : Fragment() {
@@ -76,6 +78,8 @@ class MemberListFragment : Fragment() {
         return binding.root
 
     }
-
-
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as MainActivity).supportActionBar?.title ="Party Member List"
+    }
 }

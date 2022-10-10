@@ -1,5 +1,9 @@
 package com.example.parliamentapplication
-
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 02.10.2022
+*/
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

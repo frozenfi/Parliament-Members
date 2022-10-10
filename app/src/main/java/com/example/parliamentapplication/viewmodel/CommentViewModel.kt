@@ -1,13 +1,17 @@
 package com.example.parliamentapplication.viewmodel
 
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 06.10.2022
+*/
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.parliamentapplication.MyApp
 
 import com.example.parliamentapplication.ParliamentMembers
-import com.example.parliamentapplication.data.*
+import com.example.parliamentapplication.data.Feedback
+import com.example.parliamentapplication.data.FeedbackDatabase
 import com.example.parliamentapplication.repo.FeedbackRepo
-import com.example.parliamentapplication.repo.MembersRepo
 import kotlinx.coroutines.launch
 
 /*

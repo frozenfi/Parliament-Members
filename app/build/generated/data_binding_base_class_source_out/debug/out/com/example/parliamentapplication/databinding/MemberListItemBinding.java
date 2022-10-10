@@ -4,6 +4,7 @@ package com.example.parliamentapplication.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +19,9 @@ import java.lang.Object;
 
 public abstract class MemberListItemBinding extends ViewDataBinding {
   @NonNull
+  public final ImageView imageView2;
+
+  @NonNull
   public final TextView memberDesignation;
 
   @NonNull
@@ -30,8 +34,9 @@ public abstract class MemberListItemBinding extends ViewDataBinding {
   protected MemberClickListener mClickListener;
 
   protected MemberListItemBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      TextView memberDesignation, TextView memberName) {
+      ImageView imageView2, TextView memberDesignation, TextView memberName) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.imageView2 = imageView2;
     this.memberDesignation = memberDesignation;
     this.memberName = memberName;
   }

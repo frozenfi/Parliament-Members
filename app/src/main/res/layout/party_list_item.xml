@@ -29,7 +29,7 @@
             android:id="@+id/party_logo"
             android:layout_width="75dp"
             android:layout_height="31dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="6dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/party_logo1"
@@ -53,13 +53,12 @@
             android:text="@string/app_name"
             android:textAlignment="viewStart"
             android:textSize="18sp"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.665"
+            app:layout_constraintHorizontal_bias="0.848"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.436"
+            app:layout_constraintVertical_bias="0.457"
             app:partyNameFormatted="@{party}"
             tools:text="Party Name" />
     </androidx.constraintlayout.widget.ConstraintLayout>

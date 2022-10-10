@@ -99,13 +99,13 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
     protected boolean onFieldChange(int localFieldId, Object object, int fieldId) {
         switch (localFieldId) {
             case 0 :
-                return onChangeMemberDetailsViewModelMemberGetValue((androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers>) object, fieldId);
+                return onChangeMemberDetailsViewModelSelectedMember((androidx.lifecycle.LiveData<androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers>>) object, fieldId);
             case 1 :
-                return onChangeMemberDetailsViewModelMember((androidx.lifecycle.LiveData<androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers>>) object, fieldId);
+                return onChangeMemberDetailsViewModelSelectedMemberGetValue((androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers>) object, fieldId);
         }
         return false;
     }
-    private boolean onChangeMemberDetailsViewModelMemberGetValue(androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers> MemberDetailsViewModelMemberGetValue, int fieldId) {
+    private boolean onChangeMemberDetailsViewModelSelectedMember(androidx.lifecycle.LiveData<androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers>> MemberDetailsViewModelSelectedMember, int fieldId) {
         if (fieldId == BR._all) {
             synchronized(this) {
                     mDirtyFlags |= 0x1L;
@@ -114,7 +114,7 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
         }
         return false;
     }
-    private boolean onChangeMemberDetailsViewModelMember(androidx.lifecycle.LiveData<androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers>> MemberDetailsViewModelMember, int fieldId) {
+    private boolean onChangeMemberDetailsViewModelSelectedMemberGetValue(androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers> MemberDetailsViewModelSelectedMemberGetValue, int fieldId) {
         if (fieldId == BR._all) {
             synchronized(this) {
                     mDirtyFlags |= 0x2L;
@@ -131,62 +131,63 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
-        boolean memberDetailsViewModelMemberMinister = false;
-        int memberDetailsViewModelMemberBornYear = 0;
+        java.lang.String memberDetailsViewModelSelectedMemberMinisterJavaLangStringMinisterJavaLangStringParliamentMember = null;
+        java.lang.String javaLangStringBornYearIntegerToStringMemberDetailsViewModelSelectedMemberBornYear = null;
+        java.lang.String integerToStringMemberDetailsViewModelSelectedMemberBornYear = null;
+        java.lang.String memberDetailsViewModelSelectedMemberPartyToUpperCase = null;
+        java.lang.String memberDetailsViewModelSelectedMemberFullName = null;
+        com.example.parliamentapplication.ParliamentMembers memberDetailsViewModelSelectedMemberGetValueGetValue = null;
         com.example.parliamentapplication.viewmodel.MemberDetailsViewModel memberDetailsViewModel = mMemberDetailsViewModel;
-        java.lang.String memberDetailsViewModelMemberFullName = null;
-        com.example.parliamentapplication.ParliamentMembers memberDetailsViewModelMemberGetValueGetValue = null;
-        java.lang.String memberDetailsViewModelMemberMinisterJavaLangStringMinisterJavaLangStringParliamentMember = null;
-        androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers> memberDetailsViewModelMemberGetValue = null;
-        androidx.lifecycle.LiveData<androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers>> memberDetailsViewModelMember = null;
-        java.lang.String integerToStringMemberDetailsViewModelMemberBornYear = null;
-        java.lang.String memberDetailsViewModelMemberPicture = null;
-        java.lang.String javaLangStringBornYearIntegerToStringMemberDetailsViewModelMemberBornYear = null;
-        java.lang.String memberDetailsViewModelMemberParty = null;
-        java.lang.String javaLangStringPartyMemberDetailsViewModelMemberParty = null;
-        java.lang.String memberDetailsViewModelMemberConstituency = null;
-        java.lang.String javaLangStringConstituencyMemberDetailsViewModelMemberConstituency = null;
+        boolean memberDetailsViewModelSelectedMemberMinister = false;
+        java.lang.String memberDetailsViewModelSelectedMemberParty = null;
+        java.lang.String memberDetailsViewModelSelectedMemberPicture = null;
+        int memberDetailsViewModelSelectedMemberBornYear = 0;
+        java.lang.String javaLangStringPartyMemberDetailsViewModelSelectedMemberPartyToUpperCase = null;
+        androidx.lifecycle.LiveData<androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers>> memberDetailsViewModelSelectedMember = null;
+        java.lang.String javaLangStringConstituencyMemberDetailsViewModelSelectedMemberConstituency = null;
+        java.lang.String memberDetailsViewModelSelectedMemberConstituency = null;
+        androidx.lifecycle.LiveData<com.example.parliamentapplication.ParliamentMembers> memberDetailsViewModelSelectedMemberGetValue = null;
 
         if ((dirtyFlags & 0xfL) != 0) {
 
 
 
                 if (memberDetailsViewModel != null) {
-                    // read memberDetailsViewModel.member
-                    memberDetailsViewModelMember = memberDetailsViewModel.getMember();
+                    // read memberDetailsViewModel.selectedMember
+                    memberDetailsViewModelSelectedMember = memberDetailsViewModel.getSelectedMember();
                 }
-                updateLiveDataRegistration(1, memberDetailsViewModelMember);
+                updateLiveDataRegistration(0, memberDetailsViewModelSelectedMember);
 
 
-                if (memberDetailsViewModelMember != null) {
-                    // read memberDetailsViewModel.member.getValue()
-                    memberDetailsViewModelMemberGetValue = memberDetailsViewModelMember.getValue();
+                if (memberDetailsViewModelSelectedMember != null) {
+                    // read memberDetailsViewModel.selectedMember.getValue()
+                    memberDetailsViewModelSelectedMemberGetValue = memberDetailsViewModelSelectedMember.getValue();
                 }
-                updateLiveDataRegistration(0, memberDetailsViewModelMemberGetValue);
+                updateLiveDataRegistration(1, memberDetailsViewModelSelectedMemberGetValue);
 
 
-                if (memberDetailsViewModelMemberGetValue != null) {
-                    // read memberDetailsViewModel.member.getValue().getValue()
-                    memberDetailsViewModelMemberGetValueGetValue = memberDetailsViewModelMemberGetValue.getValue();
+                if (memberDetailsViewModelSelectedMemberGetValue != null) {
+                    // read memberDetailsViewModel.selectedMember.getValue().getValue()
+                    memberDetailsViewModelSelectedMemberGetValueGetValue = memberDetailsViewModelSelectedMemberGetValue.getValue();
                 }
 
 
-                if (memberDetailsViewModelMemberGetValueGetValue != null) {
-                    // read memberDetailsViewModel.member.getValue().getValue().minister
-                    memberDetailsViewModelMemberMinister = memberDetailsViewModelMemberGetValueGetValue.getMinister();
-                    // read memberDetailsViewModel.member.getValue().getValue().bornYear
-                    memberDetailsViewModelMemberBornYear = memberDetailsViewModelMemberGetValueGetValue.getBornYear();
-                    // read memberDetailsViewModel.member.getValue().getValue().fullName
-                    memberDetailsViewModelMemberFullName = memberDetailsViewModelMemberGetValueGetValue.getFullName();
-                    // read memberDetailsViewModel.member.getValue().getValue().picture
-                    memberDetailsViewModelMemberPicture = memberDetailsViewModelMemberGetValueGetValue.getPicture();
-                    // read memberDetailsViewModel.member.getValue().getValue().party
-                    memberDetailsViewModelMemberParty = memberDetailsViewModelMemberGetValueGetValue.getParty();
-                    // read memberDetailsViewModel.member.getValue().getValue().constituency
-                    memberDetailsViewModelMemberConstituency = memberDetailsViewModelMemberGetValueGetValue.getConstituency();
+                if (memberDetailsViewModelSelectedMemberGetValueGetValue != null) {
+                    // read memberDetailsViewModel.selectedMember.getValue().getValue().fullName
+                    memberDetailsViewModelSelectedMemberFullName = memberDetailsViewModelSelectedMemberGetValueGetValue.getFullName();
+                    // read memberDetailsViewModel.selectedMember.getValue().getValue().minister
+                    memberDetailsViewModelSelectedMemberMinister = memberDetailsViewModelSelectedMemberGetValueGetValue.getMinister();
+                    // read memberDetailsViewModel.selectedMember.getValue().getValue().party
+                    memberDetailsViewModelSelectedMemberParty = memberDetailsViewModelSelectedMemberGetValueGetValue.getParty();
+                    // read memberDetailsViewModel.selectedMember.getValue().getValue().picture
+                    memberDetailsViewModelSelectedMemberPicture = memberDetailsViewModelSelectedMemberGetValueGetValue.getPicture();
+                    // read memberDetailsViewModel.selectedMember.getValue().getValue().bornYear
+                    memberDetailsViewModelSelectedMemberBornYear = memberDetailsViewModelSelectedMemberGetValueGetValue.getBornYear();
+                    // read memberDetailsViewModel.selectedMember.getValue().getValue().constituency
+                    memberDetailsViewModelSelectedMemberConstituency = memberDetailsViewModelSelectedMemberGetValueGetValue.getConstituency();
                 }
             if((dirtyFlags & 0xfL) != 0) {
-                if(memberDetailsViewModelMemberMinister) {
+                if(memberDetailsViewModelSelectedMemberMinister) {
                         dirtyFlags |= 0x20L;
                 }
                 else {
@@ -195,29 +196,33 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
             }
 
 
-                // read memberDetailsViewModel.member.getValue().getValue().minister ? "Minister" : "Parliament Member"
-                memberDetailsViewModelMemberMinisterJavaLangStringMinisterJavaLangStringParliamentMember = ((memberDetailsViewModelMemberMinister) ? ("Minister") : ("Parliament Member"));
-                // read Integer.toString(memberDetailsViewModel.member.getValue().getValue().bornYear)
-                integerToStringMemberDetailsViewModelMemberBornYear = java.lang.Integer.toString(memberDetailsViewModelMemberBornYear);
-                // read ("Party: ") + (memberDetailsViewModel.member.getValue().getValue().party)
-                javaLangStringPartyMemberDetailsViewModelMemberParty = ("Party: ") + (memberDetailsViewModelMemberParty);
-                // read ("Constituency: ") + (memberDetailsViewModel.member.getValue().getValue().constituency)
-                javaLangStringConstituencyMemberDetailsViewModelMemberConstituency = ("Constituency: ") + (memberDetailsViewModelMemberConstituency);
+                // read memberDetailsViewModel.selectedMember.getValue().getValue().minister ? "Minister" : "Parliament Member"
+                memberDetailsViewModelSelectedMemberMinisterJavaLangStringMinisterJavaLangStringParliamentMember = ((memberDetailsViewModelSelectedMemberMinister) ? ("Minister") : ("Parliament Member"));
+                // read Integer.toString(memberDetailsViewModel.selectedMember.getValue().getValue().bornYear)
+                integerToStringMemberDetailsViewModelSelectedMemberBornYear = java.lang.Integer.toString(memberDetailsViewModelSelectedMemberBornYear);
+                // read ("Constituency: ") + (memberDetailsViewModel.selectedMember.getValue().getValue().constituency)
+                javaLangStringConstituencyMemberDetailsViewModelSelectedMemberConstituency = ("Constituency: ") + (memberDetailsViewModelSelectedMemberConstituency);
+                if (memberDetailsViewModelSelectedMemberParty != null) {
+                    // read memberDetailsViewModel.selectedMember.getValue().getValue().party.toUpperCase()
+                    memberDetailsViewModelSelectedMemberPartyToUpperCase = memberDetailsViewModelSelectedMemberParty.toUpperCase();
+                }
 
 
-                // read ("Born Year: ") + (Integer.toString(memberDetailsViewModel.member.getValue().getValue().bornYear))
-                javaLangStringBornYearIntegerToStringMemberDetailsViewModelMemberBornYear = ("Born Year: ") + (integerToStringMemberDetailsViewModelMemberBornYear);
+                // read ("Born Year: ") + (Integer.toString(memberDetailsViewModel.selectedMember.getValue().getValue().bornYear))
+                javaLangStringBornYearIntegerToStringMemberDetailsViewModelSelectedMemberBornYear = ("Born Year: ") + (integerToStringMemberDetailsViewModelSelectedMemberBornYear);
+                // read ("Party: ") + (memberDetailsViewModel.selectedMember.getValue().getValue().party.toUpperCase())
+                javaLangStringPartyMemberDetailsViewModelSelectedMemberPartyToUpperCase = ("Party: ") + (memberDetailsViewModelSelectedMemberPartyToUpperCase);
         }
         // batch finished
         if ((dirtyFlags & 0xfL) != 0) {
             // api target 1
 
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.age, javaLangStringBornYearIntegerToStringMemberDetailsViewModelMemberBornYear);
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.constituency, javaLangStringConstituencyMemberDetailsViewModelMemberConstituency);
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.designation, memberDetailsViewModelMemberMinisterJavaLangStringMinisterJavaLangStringParliamentMember);
-            com.example.parliamentapplication.utils.UtilitiesKt.bindImage(this.memberImage, memberDetailsViewModelMemberPicture);
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.name, memberDetailsViewModelMemberFullName);
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.party, javaLangStringPartyMemberDetailsViewModelMemberParty);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.age, javaLangStringBornYearIntegerToStringMemberDetailsViewModelSelectedMemberBornYear);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.constituency, javaLangStringConstituencyMemberDetailsViewModelSelectedMemberConstituency);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.designation, memberDetailsViewModelSelectedMemberMinisterJavaLangStringMinisterJavaLangStringParliamentMember);
+            com.example.parliamentapplication.utils.UtilitiesKt.bindImage(this.memberImage, memberDetailsViewModelSelectedMemberPicture);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.name, memberDetailsViewModelSelectedMemberFullName);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.party, javaLangStringPartyMemberDetailsViewModelSelectedMemberPartyToUpperCase);
         }
     }
     // Listener Stub Implementations
@@ -225,12 +230,12 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): memberDetailsViewModel.member.getValue()
-        flag 1 (0x2L): memberDetailsViewModel.member
+        flag 0 (0x1L): memberDetailsViewModel.selectedMember
+        flag 1 (0x2L): memberDetailsViewModel.selectedMember.getValue()
         flag 2 (0x3L): memberDetailsViewModel
         flag 3 (0x4L): null
-        flag 4 (0x5L): memberDetailsViewModel.member.getValue().getValue().minister ? "Minister" : "Parliament Member"
-        flag 5 (0x6L): memberDetailsViewModel.member.getValue().getValue().minister ? "Minister" : "Parliament Member"
+        flag 4 (0x5L): memberDetailsViewModel.selectedMember.getValue().getValue().minister ? "Minister" : "Parliament Member"
+        flag 5 (0x6L): memberDetailsViewModel.selectedMember.getValue().getValue().minister ? "Minister" : "Parliament Member"
     flag mapping end*/
     //end
 }

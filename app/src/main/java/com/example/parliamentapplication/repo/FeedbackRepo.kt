@@ -17,3 +17,24 @@ class FeedbackRepo(private val feedbackDatabase: FeedbackDatabase) {
         return feedbackDao.getComment(personNumber)
     }
 }
+
+/*
+class LikeRepo(private val dataDao :FeedbackDao) {
+    suspend fun getLikes(personNumber: Int):LiveData<Rating>{
+        var memLikes = dataDao.getlikes(personNumber)
+        if(memLikes.value?.personNumber == null) {
+            dataDao.insert(Rating(personNumber))
+            memLikes =dataDao.getlikes(personNumber)
+        }
+        return memLikes
+    }
+
+    suspend fun likeMember(personNumber: Int) {
+        dataDao.likeMember(personNumber)
+    }
+    suspend fun dislikeMember(personNumber: Int) {
+        dataDao.dislikeMember(personNumber)
+    }
+}
+
+ */

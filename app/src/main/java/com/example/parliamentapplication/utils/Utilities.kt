@@ -1,5 +1,10 @@
 package com.example.parliamentapplication.utils
 
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 03.10.2022
+*/
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.net.toUri
@@ -9,7 +14,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.parliamentapplication.R
 
 /*
-Utilities used to access through data binding in xml file
+Binding utilities used to access through data binding in xml file
  */
 
 //It set the party name format
@@ -54,6 +59,7 @@ fun ImageView.setPartyLogo(item: String){
 
 
 //accessing the image url through glide library
+//Downloads, cache and bind the image
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
     val imageUrl =  "https://avoindata.eduskunta.fi/$imgUrl"

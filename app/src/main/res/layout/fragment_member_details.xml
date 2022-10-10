@@ -27,7 +27,7 @@
 
             <TextView
                 android:id="@+id/designation"
-                android:text="@{memberDetailsViewModel.member.minister ? `Minister` : `Parliament Member`}"
+                android:text="@{memberDetailsViewModel.selectedMember.minister ? `Minister` : `Parliament Member`}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -39,7 +39,7 @@
 
             <TextView
                 android:id="@+id/name"
-                android:text="@{memberDetailsViewModel.member.fullName}"
+                android:text="@{memberDetailsViewModel.selectedMember.fullName}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -50,7 +50,7 @@
 
             <TextView
                 android:id="@+id/constituency"
-                android:text='@{"Constituency: " + memberDetailsViewModel.member.constituency}'
+                android:text='@{"Constituency: " + memberDetailsViewModel.selectedMember.constituency}'
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -61,7 +61,7 @@
 
             <TextView
                 android:id="@+id/age"
-                android:text='@{"Born Year: " +Integer.toString(memberDetailsViewModel.member.bornYear)}'
+                android:text='@{"Born Year: " +Integer.toString(memberDetailsViewModel.selectedMember.bornYear)}'
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -72,7 +72,7 @@
 
             <TextView
                 android:id="@+id/party"
-               android:text="@{`Party: ` +memberDetailsViewModel.member.party}"
+               android:text="@{`Party: ` +memberDetailsViewModel.selectedMember.party.toUpperCase()}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -88,7 +88,7 @@
                 android:contentDescription="@string/image_of_member"
                 android:paddingTop="16dp"
                 android:src="@drawable/ic_launcher_foreground"
-                app:imageUrl="@{memberDetailsViewModel.member.picture}" />
+                app:imageUrl="@{memberDetailsViewModel.selectedMember.picture}" />
 
 
             <LinearLayout
@@ -118,7 +118,7 @@
                     android:id="@+id/dislike_btn"
                     android:layout_width="80dp"
                     android:layout_height="76dp"
-                    android:layout_marginStart="100dp"
+                    android:layout_marginStart="50dp"
                     android:adjustViewBounds="true"
                     android:background="@color/white"
                     android:contentDescription="@string/dislike_btn"
@@ -126,6 +126,7 @@
                     android:scaleX="0.5"
                     android:scaleY="0.5"
                     app:srcCompat="@drawable/dislike" />
+
 
             </LinearLayout>
 

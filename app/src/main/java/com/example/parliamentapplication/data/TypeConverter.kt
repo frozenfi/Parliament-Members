@@ -1,5 +1,10 @@
 package com.example.parliamentapplication.data
 
+/*
+* Name: Binod Panta
+* Student No: 2012206
+* Date: 08.10.2022
+*/
 import android.annotation.SuppressLint
 import androidx.room.TypeConverter
 

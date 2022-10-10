@@ -152,10 +152,6 @@
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.parliamentapplication.app-merged_res-74:/layout_fragment_comment.xml.flat",
-        "source": "com.example.parliamentapplication.app-main-76:/layout/fragment_comment.xml"
-    },
-    {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\layout_party_list_item.xml.flat",
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\party_list_item.xml"
     },
@@ -166,6 +162,10 @@
     {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.parliamentapplication.app-merged_res-74:/layout_member_list_item.xml.flat",
+        "source": "com.example.parliamentapplication.app-main-76:/layout/member_list_item.xml"
     },
     {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-merged_res-74:\\mipmap-xxxhdpi_ic_launcher.webp.flat",

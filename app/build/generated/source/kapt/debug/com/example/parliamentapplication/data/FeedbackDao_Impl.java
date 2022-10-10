@@ -7,6 +7,7 @@ import androidx.room.EntityDeletionOrUpdateAdapter;
 import androidx.room.EntityInsertionAdapter;
 import androidx.room.RoomDatabase;
 import androidx.room.RoomSQLiteQuery;
+import androidx.room.SharedSQLiteStatement;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
@@ -31,6 +32,8 @@ public final class FeedbackDao_Impl implements FeedbackDao {
   private final TypeConverter __typeConverter = new TypeConverter();
 
   private final EntityDeletionOrUpdateAdapter<Feedback> __updateAdapterOfFeedback;
+
+  private final SharedSQLiteStatement __preparedStmtOfClear;
 
   public FeedbackDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -71,6 +74,13 @@ public final class FeedbackDao_Impl implements FeedbackDao {
         stmt.bindLong(4, value.getPersonNumber());
       }
     };
+    this.__preparedStmtOfClear = new SharedSQLiteStatement(__db) {
+      @Override
+      public String createQuery() {
+        final String _query = "DELETE FROM feedback_database";
+        return _query;
+      }
+    };
   }
 
   @Override
@@ -107,6 +117,20 @@ public final class FeedbackDao_Impl implements FeedbackDao {
         }
       }
     }, continuation);
+  }
+
+  @Override
+  public void clear() {
+    __db.assertNotSuspendingTransaction();
+    final SupportSQLiteStatement _stmt = __preparedStmtOfClear.acquire();
+    __db.beginTransaction();
+    try {
+      _stmt.executeUpdateDelete();
+      __db.setTransactionSuccessful();
+    } finally {
+      __db.endTransaction();
+      __preparedStmtOfClear.release(_stmt);
+    }
   }
 
   @Override

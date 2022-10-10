@@ -21,19 +21,7 @@ interface FeedbackDao {
     @Query("SELECT * FROM feedback_database WHERE personNumber = :personNumber")
     suspend fun getComment(personNumber:Int): Feedback
 
-    /*
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(like:Rating)
-
-    @Query("UPDATE rating_db SET rating = rating + 1 WHERE personNumber = :personNumber")
-    suspend fun likeMember(personNumber: Int)
-
-    @Query("UPDATE rating_db SET rating = rating - 1 WHERE personNumber = :personNumber")
-    suspend fun dislikeMember(personNumber: Int)
-
-    @Query("SELECT* FROM rating_db WHERE personNumber =:personNumber")
-    fun getlikes(personNumber: Int):LiveData<Rating>
-
-     */
+    @Query("DELETE FROM feedback_database")
+    fun clear()
 
 }

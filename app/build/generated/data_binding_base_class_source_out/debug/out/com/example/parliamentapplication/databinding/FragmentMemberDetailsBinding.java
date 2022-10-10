@@ -23,7 +23,7 @@ public abstract class FragmentMemberDetailsBinding extends ViewDataBinding {
   public final Button addComment;
 
   @NonNull
-  public final TextView age;
+  public final TextView bornYear;
 
   @NonNull
   public final TextView constituency;
@@ -53,12 +53,12 @@ public abstract class FragmentMemberDetailsBinding extends ViewDataBinding {
   protected MemberDetailsViewModel mMemberDetailsViewModel;
 
   protected FragmentMemberDetailsBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button addComment, TextView age, TextView constituency, TextView designation,
+      Button addComment, TextView bornYear, TextView constituency, TextView designation,
       ImageButton dislikeBtn, ImageButton likeBtn, ImageView memberImage, TextView name,
       TextView party, TextView ratingScore) {
     super(_bindingComponent, _root, _localFieldCount);
     this.addComment = addComment;
-    this.age = age;
+    this.bornYear = bornYear;
     this.constituency = constituency;
     this.designation = designation;
     this.dislikeBtn = dislikeBtn;

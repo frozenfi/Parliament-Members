@@ -2,14 +2,15 @@ package com.example.parliamentapplication
 /*
 * Name: Binod Panta
 * Student No: 2012206
-* Date: 02.10.2022
+* Date: 04.10.2022
 */
+
 import android.app.Application
-import android.content.Context
 import androidx.work.*
 import com.example.parliamentapplication.utils.RefreshDataWorker
-import kotlinx.coroutines.*
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 
 /*

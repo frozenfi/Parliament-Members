@@ -16,6 +16,10 @@
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\activity_main.xml"
     },
     {
+        "merged": "com.example.parliamentapplication.app-mergeDebugResources-73:/layout/fragment_member_details.xml",
+        "source": "com.example.parliamentapplication.app-main-76:/layout/fragment_member_details.xml"
+    },
+    {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-mergeDebugResources-73:\\layout\\fragment_party_list.xml",
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\fragment_party_list.xml"
     },
@@ -38,9 +42,5 @@
     {
         "merged": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-mergeDebugResources-73:\\layout\\member_list_item.xml",
         "source": "C:\\Users\\Jyoti\\.gradle\\daemon\\7.4\\com.example.parliamentapplication.app-main-76:\\layout\\member_list_item.xml"
-    },
-    {
-        "merged": "com.example.parliamentapplication.app-mergeDebugResources-73:/layout/member_list_item.xml",
-        "source": "com.example.parliamentapplication.app-main-76:/layout/member_list_item.xml"
     }
 ]

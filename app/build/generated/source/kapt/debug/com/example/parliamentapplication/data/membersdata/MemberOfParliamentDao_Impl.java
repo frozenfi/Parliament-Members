@@ -38,102 +38,100 @@ public final class MemberOfParliamentDao_Impl implements MemberOfParliamentDao {
     this.__insertionAdapterOfParliamentMembers = new EntityInsertionAdapter<ParliamentMembers>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `parliament_database` (`personNumber`,`seat_number`,`constituency`,`last_name`,`first_name`,`full_name`,`party`,`born_year`,`minister`,`picture_url`,`twitter_account`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        return "INSERT OR REPLACE INTO `parliament_database` (`personNumber`,`constituency`,`last_name`,`first_name`,`full_name`,`party`,`born_year`,`minister`,`picture_url`,`twitter_account`) VALUES (?,?,?,?,?,?,?,?,?,?)";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, ParliamentMembers value) {
         stmt.bindLong(1, value.getPersonNumber());
-        stmt.bindLong(2, value.getSeatNumber());
         if (value.getConstituency() == null) {
-          stmt.bindNull(3);
+          stmt.bindNull(2);
         } else {
-          stmt.bindString(3, value.getConstituency());
+          stmt.bindString(2, value.getConstituency());
         }
         if (value.getLast() == null) {
-          stmt.bindNull(4);
+          stmt.bindNull(3);
         } else {
-          stmt.bindString(4, value.getLast());
+          stmt.bindString(3, value.getLast());
         }
         if (value.getFirst() == null) {
-          stmt.bindNull(5);
+          stmt.bindNull(4);
         } else {
-          stmt.bindString(5, value.getFirst());
+          stmt.bindString(4, value.getFirst());
         }
         if (value.getFullName() == null) {
-          stmt.bindNull(6);
+          stmt.bindNull(5);
         } else {
-          stmt.bindString(6, value.getFullName());
+          stmt.bindString(5, value.getFullName());
         }
         if (value.getParty() == null) {
-          stmt.bindNull(7);
+          stmt.bindNull(6);
         } else {
-          stmt.bindString(7, value.getParty());
+          stmt.bindString(6, value.getParty());
         }
-        stmt.bindLong(8, value.getBornYear());
+        stmt.bindLong(7, value.getBornYear());
         final int _tmp = value.getMinister() ? 1 : 0;
-        stmt.bindLong(9, _tmp);
+        stmt.bindLong(8, _tmp);
         if (value.getPicture() == null) {
-          stmt.bindNull(10);
+          stmt.bindNull(9);
         } else {
-          stmt.bindString(10, value.getPicture());
+          stmt.bindString(9, value.getPicture());
         }
         if (value.getTwitter() == null) {
-          stmt.bindNull(11);
+          stmt.bindNull(10);
         } else {
-          stmt.bindString(11, value.getTwitter());
+          stmt.bindString(10, value.getTwitter());
         }
       }
     };
     this.__updateAdapterOfParliamentMembers = new EntityDeletionOrUpdateAdapter<ParliamentMembers>(__db) {
       @Override
       public String createQuery() {
-        return "UPDATE OR ABORT `parliament_database` SET `personNumber` = ?,`seat_number` = ?,`constituency` = ?,`last_name` = ?,`first_name` = ?,`full_name` = ?,`party` = ?,`born_year` = ?,`minister` = ?,`picture_url` = ?,`twitter_account` = ? WHERE `personNumber` = ?";
+        return "UPDATE OR ABORT `parliament_database` SET `personNumber` = ?,`constituency` = ?,`last_name` = ?,`first_name` = ?,`full_name` = ?,`party` = ?,`born_year` = ?,`minister` = ?,`picture_url` = ?,`twitter_account` = ? WHERE `personNumber` = ?";
       }
 
       @Override
       public void bind(SupportSQLiteStatement stmt, ParliamentMembers value) {
         stmt.bindLong(1, value.getPersonNumber());
-        stmt.bindLong(2, value.getSeatNumber());
         if (value.getConstituency() == null) {
-          stmt.bindNull(3);
+          stmt.bindNull(2);
         } else {
-          stmt.bindString(3, value.getConstituency());
+          stmt.bindString(2, value.getConstituency());
         }
         if (value.getLast() == null) {
-          stmt.bindNull(4);
+          stmt.bindNull(3);
         } else {
-          stmt.bindString(4, value.getLast());
+          stmt.bindString(3, value.getLast());
         }
         if (value.getFirst() == null) {
-          stmt.bindNull(5);
+          stmt.bindNull(4);
         } else {
-          stmt.bindString(5, value.getFirst());
+          stmt.bindString(4, value.getFirst());
         }
         if (value.getFullName() == null) {
-          stmt.bindNull(6);
+          stmt.bindNull(5);
         } else {
-          stmt.bindString(6, value.getFullName());
+          stmt.bindString(5, value.getFullName());
         }
         if (value.getParty() == null) {
-          stmt.bindNull(7);
+          stmt.bindNull(6);
         } else {
-          stmt.bindString(7, value.getParty());
+          stmt.bindString(6, value.getParty());
         }
-        stmt.bindLong(8, value.getBornYear());
+        stmt.bindLong(7, value.getBornYear());
         final int _tmp = value.getMinister() ? 1 : 0;
-        stmt.bindLong(9, _tmp);
+        stmt.bindLong(8, _tmp);
         if (value.getPicture() == null) {
-          stmt.bindNull(10);
+          stmt.bindNull(9);
         } else {
-          stmt.bindString(10, value.getPicture());
+          stmt.bindString(9, value.getPicture());
         }
         if (value.getTwitter() == null) {
-          stmt.bindNull(11);
+          stmt.bindNull(10);
         } else {
-          stmt.bindString(11, value.getTwitter());
+          stmt.bindString(10, value.getTwitter());
         }
-        stmt.bindLong(12, value.getPersonNumber());
+        stmt.bindLong(11, value.getPersonNumber());
       }
     };
   }
@@ -184,7 +182,6 @@ public final class MemberOfParliamentDao_Impl implements MemberOfParliamentDao {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
           final int _cursorIndexOfPersonNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "personNumber");
-          final int _cursorIndexOfSeatNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "seat_number");
           final int _cursorIndexOfConstituency = CursorUtil.getColumnIndexOrThrow(_cursor, "constituency");
           final int _cursorIndexOfLast = CursorUtil.getColumnIndexOrThrow(_cursor, "last_name");
           final int _cursorIndexOfFirst = CursorUtil.getColumnIndexOrThrow(_cursor, "first_name");
@@ -199,8 +196,6 @@ public final class MemberOfParliamentDao_Impl implements MemberOfParliamentDao {
             final ParliamentMembers _item;
             final int _tmpPersonNumber;
             _tmpPersonNumber = _cursor.getInt(_cursorIndexOfPersonNumber);
-            final int _tmpSeatNumber;
-            _tmpSeatNumber = _cursor.getInt(_cursorIndexOfSeatNumber);
             final String _tmpConstituency;
             if (_cursor.isNull(_cursorIndexOfConstituency)) {
               _tmpConstituency = null;
@@ -249,7 +244,7 @@ public final class MemberOfParliamentDao_Impl implements MemberOfParliamentDao {
             } else {
               _tmpTwitter = _cursor.getString(_cursorIndexOfTwitter);
             }
-            _item = new ParliamentMembers(_tmpPersonNumber,_tmpSeatNumber,_tmpConstituency,_tmpLast,_tmpFirst,_tmpFullName,_tmpParty,_tmpBornYear,_tmpMinister,_tmpPicture,_tmpTwitter);
+            _item = new ParliamentMembers(_tmpPersonNumber,_tmpConstituency,_tmpLast,_tmpFirst,_tmpFullName,_tmpParty,_tmpBornYear,_tmpMinister,_tmpPicture,_tmpTwitter);
             _result.add(_item);
           }
           return _result;
@@ -309,7 +304,6 @@ public final class MemberOfParliamentDao_Impl implements MemberOfParliamentDao {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
           final int _cursorIndexOfPersonNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "personNumber");
-          final int _cursorIndexOfSeatNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "seat_number");
           final int _cursorIndexOfConstituency = CursorUtil.getColumnIndexOrThrow(_cursor, "constituency");
           final int _cursorIndexOfLast = CursorUtil.getColumnIndexOrThrow(_cursor, "last_name");
           final int _cursorIndexOfFirst = CursorUtil.getColumnIndexOrThrow(_cursor, "first_name");
@@ -323,8 +317,6 @@ public final class MemberOfParliamentDao_Impl implements MemberOfParliamentDao {
           if(_cursor.moveToFirst()) {
             final int _tmpPersonNumber;
             _tmpPersonNumber = _cursor.getInt(_cursorIndexOfPersonNumber);
-            final int _tmpSeatNumber;
-            _tmpSeatNumber = _cursor.getInt(_cursorIndexOfSeatNumber);
             final String _tmpConstituency;
             if (_cursor.isNull(_cursorIndexOfConstituency)) {
               _tmpConstituency = null;
@@ -373,7 +365,7 @@ public final class MemberOfParliamentDao_Impl implements MemberOfParliamentDao {
             } else {
               _tmpTwitter = _cursor.getString(_cursorIndexOfTwitter);
             }
-            _result = new ParliamentMembers(_tmpPersonNumber,_tmpSeatNumber,_tmpConstituency,_tmpLast,_tmpFirst,_tmpFullName,_tmpParty,_tmpBornYear,_tmpMinister,_tmpPicture,_tmpTwitter);
+            _result = new ParliamentMembers(_tmpPersonNumber,_tmpConstituency,_tmpLast,_tmpFirst,_tmpFullName,_tmpParty,_tmpBornYear,_tmpMinister,_tmpPicture,_tmpTwitter);
           } else {
             _result = null;
           }
@@ -406,7 +398,6 @@ public final class MemberOfParliamentDao_Impl implements MemberOfParliamentDao {
         final Cursor _cursor = DBUtil.query(__db, _statement, false, null);
         try {
           final int _cursorIndexOfPersonNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "personNumber");
-          final int _cursorIndexOfSeatNumber = CursorUtil.getColumnIndexOrThrow(_cursor, "seat_number");
           final int _cursorIndexOfConstituency = CursorUtil.getColumnIndexOrThrow(_cursor, "constituency");
           final int _cursorIndexOfLast = CursorUtil.getColumnIndexOrThrow(_cursor, "last_name");
           final int _cursorIndexOfFirst = CursorUtil.getColumnIndexOrThrow(_cursor, "first_name");
@@ -421,8 +412,6 @@ public final class MemberOfParliamentDao_Impl implements MemberOfParliamentDao {
             final ParliamentMembers _item;
             final int _tmpPersonNumber;
             _tmpPersonNumber = _cursor.getInt(_cursorIndexOfPersonNumber);
-            final int _tmpSeatNumber;
-            _tmpSeatNumber = _cursor.getInt(_cursorIndexOfSeatNumber);
             final String _tmpConstituency;
             if (_cursor.isNull(_cursorIndexOfConstituency)) {
               _tmpConstituency = null;
@@ -471,7 +460,7 @@ public final class MemberOfParliamentDao_Impl implements MemberOfParliamentDao {
             } else {
               _tmpTwitter = _cursor.getString(_cursorIndexOfTwitter);
             }
-            _item = new ParliamentMembers(_tmpPersonNumber,_tmpSeatNumber,_tmpConstituency,_tmpLast,_tmpFirst,_tmpFullName,_tmpParty,_tmpBornYear,_tmpMinister,_tmpPicture,_tmpTwitter);
+            _item = new ParliamentMembers(_tmpPersonNumber,_tmpConstituency,_tmpLast,_tmpFirst,_tmpFullName,_tmpParty,_tmpBornYear,_tmpMinister,_tmpPicture,_tmpTwitter);
             _result.add(_item);
           }
           return _result;

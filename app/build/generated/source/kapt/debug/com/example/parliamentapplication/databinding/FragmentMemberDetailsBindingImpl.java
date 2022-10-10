@@ -43,7 +43,7 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
             , (android.widget.TextView) bindings[5]
             , (android.widget.TextView) bindings[9]
             );
-        this.age.setTag(null);
+        this.bornYear.setTag(null);
         this.constituency.setTag(null);
         this.designation.setTag(null);
         this.mboundView0 = (android.widget.ScrollView) bindings[0];
@@ -217,7 +217,7 @@ public class FragmentMemberDetailsBindingImpl extends FragmentMemberDetailsBindi
         if ((dirtyFlags & 0xfL) != 0) {
             // api target 1
 
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.age, javaLangStringBornYearIntegerToStringMemberDetailsViewModelSelectedMemberBornYear);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.bornYear, javaLangStringBornYearIntegerToStringMemberDetailsViewModelSelectedMemberBornYear);
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.constituency, javaLangStringConstituencyMemberDetailsViewModelSelectedMemberConstituency);
             androidx.databinding.adapters.TextViewBindingAdapter.setText(this.designation, memberDetailsViewModelSelectedMemberMinisterJavaLangStringMinisterJavaLangStringParliamentMember);
             com.example.parliamentapplication.utils.UtilitiesKt.bindImage(this.memberImage, memberDetailsViewModelSelectedMemberPicture);

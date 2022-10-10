@@ -14,23 +14,22 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/global_item"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
+        android:layout_height="103dp"
         android:layout_margin="8dp"
+        android:background="@drawable/global_item"
         android:backgroundTint="@color/teal_700"
-        android:onClick="@{() -> clickListener.onClick(party)}">
+        android:onClick="@{() -> clickListener.onClick(party)}"
+        android:paddingStart="8dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="6dp">
 
 
         <ImageView
             android:id="@+id/party_logo"
-            android:layout_width="75dp"
-            android:layout_height="31dp"
+            android:layout_width="95dp"
+            android:layout_height="60dp"
             android:layout_marginStart="6dp"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:contentDescription="@string/party_logo1"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -45,8 +44,8 @@
 
         <TextView
             android:id="@+id/party_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="156dp"
+            android:layout_height="63dp"
             android:layout_marginStart="8dp"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
@@ -55,10 +54,10 @@
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.848"
+            app:layout_constraintHorizontal_bias="0.937"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.457"
+            app:layout_constraintVertical_bias="0.492"
             app:partyNameFormatted="@{party}"
             tools:text="Party Name" />
     </androidx.constraintlayout.widget.ConstraintLayout>

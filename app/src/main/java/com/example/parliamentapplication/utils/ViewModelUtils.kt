@@ -11,6 +11,8 @@ import java.util.Calendar
 /*
 Utilities for the viewModel class to update age,formatted partyName and rating
  */
+
+//TODO, will implement it later
 interface ViewModelUtils {
 
     val selectMember:LiveData<ParliamentMembers>

@@ -35,7 +35,7 @@ id action_memberListFragment_to_memberDetails
 id action_partyListFragment_to_memberListFragment
 id add_comment
 id add_comment_btn
-id age
+id bornYear
 id card_view
 id commentFragment
 id comment_item

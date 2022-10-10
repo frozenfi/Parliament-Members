@@ -13,9 +13,6 @@ data class ParliamentMembers(
     @PrimaryKey(autoGenerate = false)
     val personNumber: Int,
 
-    @ColumnInfo(name = "seat_number")
-    val seatNumber: Int,
-
     @ColumnInfo(name = "constituency")
     val constituency:String,
 

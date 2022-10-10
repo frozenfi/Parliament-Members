@@ -13,7 +13,7 @@ import androidx.room.*
 A database that stores the comment and rating information
 */
 
-@Database(entities = [Feedback::class], version =3, exportSchema = false)
+@Database(entities = [Feedback::class], version =4, exportSchema = false)
 @TypeConverters(TypeConverter::class)
 abstract class FeedbackDatabase:RoomDatabase() {
     abstract val feedbackDao: FeedbackDao

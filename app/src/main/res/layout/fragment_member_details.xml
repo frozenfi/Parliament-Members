@@ -59,9 +59,10 @@
                 android:textAlignment="center"
                 />
 
+
             <TextView
-                android:id="@+id/age"
-                android:text='@{"Born Year: " +Integer.toString(memberDetailsViewModel.selectedMember.bornYear)}'
+                android:id="@+id/bornYear"
+                android:text='@{"Born Year: " + Integer.toString(memberDetailsViewModel.selectedMember.bornYear)}'
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -72,7 +73,7 @@
 
             <TextView
                 android:id="@+id/party"
-               android:text="@{`Party: ` +memberDetailsViewModel.selectedMember.party.toUpperCase()}"
+                android:text='@{"Party: " + memberDetailsViewModel.selectedMember.party.toUpperCase()}'
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"

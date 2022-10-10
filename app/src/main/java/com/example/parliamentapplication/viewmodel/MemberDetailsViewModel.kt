@@ -5,46 +5,49 @@ package com.example.parliamentapplication.viewmodel
 * Date: 05.10.2022
 */
 
+import android.app.Application
 import androidx.lifecycle.*
 import com.example.parliamentapplication.ParliamentMembers
 import com.example.parliamentapplication.data.Feedback
+import com.example.parliamentapplication.data.FeedbackDatabase
 import com.example.parliamentapplication.data.membersdata.MemberOfParliamentDao
+import com.example.parliamentapplication.repo.FeedbackRepo
 import com.example.parliamentapplication.repo.MembersRepo
-import com.example.parliamentapplication.utils.ViewModelUtils
 import kotlinx.coroutines.launch
+import java.util.*
 
 /*
 ViewModel class for MemberDetails fragment
  */
-class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : ViewModel(),
-    ViewModelUtils {
+class MemberDetailsViewModel( membersRepo: MembersRepo, personNumber: Int, application: Application) : ViewModel(){
+
+    private val feedbackDatabase=FeedbackDatabase.getInstance(application)
+    private val feedbackRepo = FeedbackRepo(feedbackDatabase)
 
     private var _selectedMember = MutableLiveData<LiveData<ParliamentMembers>>()
     val selectedMember: LiveData<LiveData<ParliamentMembers>>
         get() = _selectedMember
 
     private var _selectMember = MutableLiveData<ParliamentMembers>()
-    override val selectMember: LiveData<ParliamentMembers>
-        get() = _selectMember
+     val selectMember: LiveData<ParliamentMembers>
+       get() = _selectMember
 
 
     //LiveData objects that observe and update member comment information
     private var _memberComment = MutableLiveData<Feedback>()
-    override val memberComment: LiveData<Feedback>
+     val memberComment: LiveData<Feedback>
         get() = _memberComment
 
 
     init {
         _selectedMember.value = membersRepo.getMembersWithPersonNumber(personNumber)
-    }
 
-    fun rating(): String {
-        return "Rating: ${memberComment.value?.rating.toString()}"
-    }
+        }
 
-    val twitterLink: LiveData<String> = Transformations.map(selectMember) { member ->
-        member.twitter
-    }
+
+    //val twitterLink: LiveData<String> = Transformations.map(selectMember) { member ->
+      //  member.twitter
+    //}
 
     //TO BE IMPLEMENTED LATER
     /*
@@ -68,20 +71,6 @@ class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : View
 
 
      */
-    fun updateFeedback(newRating: Int) {
-        viewModelScope.launch {
-            val memberFeedback = _memberComment.value?.let { it ->
-                Feedback(
-                    it.personNumber,
-                    it.rating.plus(newRating),
-                    it.comment.toMutableList()
-                )
-            }
-            if (memberFeedback != null) {
-                _memberComment.value = memberFeedback!!
-            }
-        }
-    }
 
     private val _navigateToComment = MutableLiveData<Feedback?>()
     val navigateToComment: MutableLiveData<Feedback?>
@@ -94,8 +83,6 @@ class MemberDetailsViewModel(membersRepo: MembersRepo, personNumber: Int) : View
     fun navigateToCommentCompleted() {
         _navigateToComment.value = null
     }
-
-
 }
 
 /*
@@ -104,12 +91,13 @@ IDE throws error without the use of ViewModelFactory class
  */
 class MemberDetailsViewModelFactory(
     private val parliamentDAO: MemberOfParliamentDao,
-    private val personNumber: Int
+    private val personNumber: Int,
+    private val application: Application
 ) : ViewModelProvider.Factory {
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MemberDetailsViewModel::class.java)) {
-            return MemberDetailsViewModel(MembersRepo(parliamentDAO), personNumber) as T
+            return MemberDetailsViewModel(MembersRepo(parliamentDAO), personNumber,application) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

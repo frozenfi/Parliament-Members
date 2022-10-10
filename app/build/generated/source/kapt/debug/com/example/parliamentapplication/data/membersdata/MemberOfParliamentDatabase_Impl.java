@@ -37,9 +37,9 @@ public final class MemberOfParliamentDatabase_Impl extends MemberOfParliamentDat
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(4) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `parliament_database` (`personNumber` INTEGER NOT NULL, `seat_number` INTEGER NOT NULL, `constituency` TEXT NOT NULL, `last_name` TEXT NOT NULL, `first_name` TEXT NOT NULL, `full_name` TEXT NOT NULL, `party` TEXT NOT NULL, `born_year` INTEGER NOT NULL, `minister` INTEGER NOT NULL, `picture_url` TEXT NOT NULL, `twitter_account` TEXT NOT NULL, PRIMARY KEY(`personNumber`))");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `parliament_database` (`personNumber` INTEGER NOT NULL, `constituency` TEXT NOT NULL, `last_name` TEXT NOT NULL, `first_name` TEXT NOT NULL, `full_name` TEXT NOT NULL, `party` TEXT NOT NULL, `born_year` INTEGER NOT NULL, `minister` INTEGER NOT NULL, `picture_url` TEXT NOT NULL, `twitter_account` TEXT NOT NULL, PRIMARY KEY(`personNumber`))");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cdef37f34c65df18b7e157e87f849213')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '559e61170d77dffd5b4742a9fc282d3b')");
       }
 
       @Override
@@ -83,9 +83,8 @@ public final class MemberOfParliamentDatabase_Impl extends MemberOfParliamentDat
 
       @Override
       protected RoomOpenHelper.ValidationResult onValidateSchema(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsParliamentDatabase = new HashMap<String, TableInfo.Column>(11);
+        final HashMap<String, TableInfo.Column> _columnsParliamentDatabase = new HashMap<String, TableInfo.Column>(10);
         _columnsParliamentDatabase.put("personNumber", new TableInfo.Column("personNumber", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsParliamentDatabase.put("seat_number", new TableInfo.Column("seat_number", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsParliamentDatabase.put("constituency", new TableInfo.Column("constituency", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsParliamentDatabase.put("last_name", new TableInfo.Column("last_name", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsParliamentDatabase.put("first_name", new TableInfo.Column("first_name", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -106,7 +105,7 @@ public final class MemberOfParliamentDatabase_Impl extends MemberOfParliamentDat
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "cdef37f34c65df18b7e157e87f849213", "c2f0c3bf9e5e78897253e43ccb5ce25a");
+    }, "559e61170d77dffd5b4742a9fc282d3b", "90ecdb68fe01b4b462d3bf63756d24cf");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

@@ -25,9 +25,9 @@ Source Material
 
 
 Screenshot
-![WhatsApp Image 2022-10-17 at 18 20 13 (4)](https://user-images.githubusercontent.com/79021612/196222469-378d6682-89bf-4bc7-94d6-3a5bc8ef14ea.jpeg) ![WhatsApp Image 2022-10-17 at 18 20 13 (3)](https://user-images.githubusercontent.com/79021612/196222570-5c7137d4-a73f-4e6c-ba1c-e2b677eabcb9.jpeg) ![WhatsApp Image 2022-10-17 at 18 20 13 (2)](https://user-images.githubusercontent.com/79021612/196222626-f8a51b40-a6a5-4f2d-8033-964d3ff07b2a.jpeg)
-![WhatsApp Image 2022-10-17 at 18 20 13 (1)](https://user-images.githubusercontent.com/79021612/196222662-23a41bdb-9bd5-452a-a790-e912499c73f1.jpeg) 
-![WhatsApp Image 2022-10-17 at 18 20 13](https://user-images.githubusercontent.com/79021612/196222713-58d214b7-b3ce-4db8-a4bf-56772f9b4aac.jpeg)
+
+<img src ="https://user-images.githubusercontent.com/79021612/196222469-378d6682-89bf-4bc7-94d6-3a5bc8ef14ea.jpeg" width = "250" height = "450"> <img src ="https://user-images.githubusercontent.com/79021612/196222570-5c7137d4-a73f-4e6c-ba1c-e2b677eabcb9.jpeg" width ="250" height ="450"> <img src = "https://user-images.githubusercontent.com/79021612/196222626-f8a51b40-a6a5-4f2d-8033-964d3ff07b2a.jpeg" width ="250" height= "450"> <img src = "https://user-images.githubusercontent.com/79021612/196222662-23a41bdb-9bd5-452a-a790-e912499c73f1.jpeg" width ="250" height= "450"> 
+<img src = "https://user-images.githubusercontent.com/79021612/196222713-58d214b7-b3ce-4db8-a4bf-56772f9b4aac.jpeg" width ="250" height= "450"> 
 
 
 
